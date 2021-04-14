@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="en">
+    <head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            The Basics of Computer Vision | 
+        
+        Jiawen and her funny friends
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/web_icon.jpg">
+    <link rel="icon" href="/img/web_icon.jpg">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="对计算机视觉的基础知识，重要工作，以及相关任务进行了梳理。">
+    <meta name="keywords" content=",Computer Vision,CNN,Semantic Segmentation,Object Detection">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.en.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Jiawen and her funny friends">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2021/04/14/The_basics_of_computer_vision/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Jiawen and her funny friends">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/web_icon.jpg">
+
+    <!-- Site Verification -->
+    
+    <meta name="baidu-site-verification" content="&lt;meta name=&#34;baidu-site-verification&#34; content=&#34;DCwhqVHr0D&#34; /&gt;" />
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2021/04/14/The_basics_of_computer_vision/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="The Basics of Computer Vision | Jiawen and her funny friends">
+    <meta property="og:image" content="/img/web_icon.jpg">
+    <meta property="og:description" content="对计算机视觉的基础知识，重要工作，以及相关任务进行了梳理。">
+    <meta property="og:article:tag" content="Computer Vision"> <meta property="og:article:tag" content="CNN"> <meta property="og:article:tag" content="Semantic Segmentation"> <meta property="og:article:tag" content="Object Detection"> 
+
+    
+        <meta property="article:published_time" content="Wed Apr 14 2021 08:44:35 GMT+0800">
+        <meta property="article:modified_time" content="Wed Apr 14 2021 09:25:40 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2021/04/14/The_basics_of_computer_vision/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2021/04/14/The_basics_of_computer_vision/index.html",
+    "headline": "The Basics of Computer Vision",
+    "datePublished": "Wed Apr 14 2021 08:44:35 GMT+0800",
+    "dateModified": "Wed Apr 14 2021 09:25:40 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Jiawen Zhang",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/figure.png"
+        },
+        "description": "A heroic dream in the exhausted life."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Jiawen and her funny friends",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/web_icon.jpg"
+        }
+    },
+    "keywords": ",Computer Vision,CNN,Semantic Segmentation,Object Detection",
+    "description": "对计算机视觉的基础知识，重要工作，以及相关任务进行了梳理。",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Jiawen and her funny friends" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#特征提取"><span class="post-toc-number">1.</span> <span class="post-toc-text">特征提取</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CNN"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">CNN</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#卷积神经网络的层级结构"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">卷积神经网络的层级结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数据输入层"><span class="post-toc-number">1.1.1.1.</span> <span class="post-toc-text">数据输入层</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#卷积计算层"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">卷积计算层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#参数共享机制"><span class="post-toc-number">1.1.2.0.1.</span> <span class="post-toc-text">参数共享机制</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#激励层"><span class="post-toc-number">1.1.2.1.</span> <span class="post-toc-text">激励层</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#池化层"><span class="post-toc-number">1.1.2.2.</span> <span class="post-toc-text">池化层</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#全连接层"><span class="post-toc-number">1.1.2.3.</span> <span class="post-toc-text">全连接层</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一般CNN结构"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">一般CNN结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#训练算法"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">训练算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优缺点"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">优缺点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#优点"><span class="post-toc-number">1.1.5.1.</span> <span class="post-toc-text">优点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#缺点"><span class="post-toc-number">1.1.5.2.</span> <span class="post-toc-text">缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#典型CNN"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">典型CNN</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Fine-tuning"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">Fine-tuning</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">1.1.8.</span> <span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#VGG"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">VGG</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原理"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优缺点-1"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">优缺点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#VGG优点"><span class="post-toc-number">1.2.2.1.</span> <span class="post-toc-text">VGG优点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#VGG缺点"><span class="post-toc-number">1.2.2.2.</span> <span class="post-toc-text">VGG缺点</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Inception"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Inception</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Inception-v1"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">Inception v1</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Introduction"><span class="post-toc-number">1.3.1.1.</span> <span class="post-toc-text">Introduction</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#GoogLeNet"><span class="post-toc-number">1.3.1.2.</span> <span class="post-toc-text">GoogLeNet</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#note-1x1的卷积核的作用"><span class="post-toc-number">1.3.1.3.</span> <span class="post-toc-text">note:1x1的卷积核的作用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#灵活的控制特征图的深度"><span class="post-toc-number">1.3.1.3.1.</span> <span class="post-toc-text">灵活的控制特征图的深度</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#减少参数"><span class="post-toc-number">1.3.1.3.2.</span> <span class="post-toc-text">减少参数</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#现了跨通道的信息组合，并增加了非线性特征"><span class="post-toc-number">1.3.1.3.3.</span> <span class="post-toc-text">现了跨通道的信息组合，并增加了非线性特征</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Inception-v2"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">Inception v2</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.3.2.1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#BN算法"><span class="post-toc-number">1.3.2.2.</span> <span class="post-toc-text">BN算法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ResNet"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">ResNet</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#目标检测"><span class="post-toc-number">2.</span> <span class="post-toc-text">目标检测</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一文读懂目标检测-（R-CNN-Fast-R-CNN-Faster-R-CNN-YOLO-SSD）"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">一文读懂目标检测 （R-CNN, Fast R-CNN, Faster R-CNN, YOLO, SSD）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SSD-（Single-Shot-MultiBox-Detector）"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">SSD （Single Shot MultiBox Detector）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Prior-Box"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">Prior Box</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结-1"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#FPN-（Feature-Pyramid-Networks）"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">FPN （Feature Pyramid Networks）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FPN基本架构"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">FPN基本架构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FPN详细介绍"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">FPN详细介绍</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#图像分割"><span class="post-toc-number">3.</span> <span class="post-toc-text">图像分割</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#FCN-（Fully-Convolutional-Networks）"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">FCN （Fully Convolutional Networks）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#核心思想"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">核心思想</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CNN与FCN"><span class="post-toc-number">3.1.1.1.</span> <span class="post-toc-text">CNN与FCN</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网络结构"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">网络结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#全卷积-提取特征"><span class="post-toc-number">3.1.2.1.</span> <span class="post-toc-text">全卷积-提取特征</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#逐像素预测"><span class="post-toc-number">3.1.2.2.</span> <span class="post-toc-text">逐像素预测</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#反卷积-升采样"><span class="post-toc-number">3.1.2.3.</span> <span class="post-toc-text">反卷积-升采样</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#上采样-Upsample"><span class="post-toc-number">3.1.2.3.1.</span> <span class="post-toc-text">上采样(Upsample)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#反卷积-Transposed-Convolution"><span class="post-toc-number">3.1.2.3.2.</span> <span class="post-toc-text">反卷积(Transposed Convolution)</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#跳级结构"><span class="post-toc-number">3.1.2.4.</span> <span class="post-toc-text">跳级结构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#训练过程"><span class="post-toc-number">3.1.2.5.</span> <span class="post-toc-text">训练过程</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结论"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">结论</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mask-R-CNN"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Mask R-CNN</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Introduction-1"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">Introduction</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本结构"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">基本结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Mask-R-CNN算法步骤"><span class="post-toc-number">3.2.3.1.</span> <span class="post-toc-text">Mask R-CNN算法步骤</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Mask-R-CNN架构分解"><span class="post-toc-number">3.2.3.2.</span> <span class="post-toc-text">Mask R-CNN架构分解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Faster-rcnn"><span class="post-toc-number">3.2.3.2.1.</span> <span class="post-toc-text">Faster-rcnn</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#FCN"><span class="post-toc-number">3.2.3.2.2.</span> <span class="post-toc-text">FCN</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#ROIPooling和ROIAlign的分析与比较"><span class="post-toc-number">3.2.3.2.3.</span> <span class="post-toc-text">ROIPooling和ROIAlign的分析与比较</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Loss-计算"><span class="post-toc-number">3.2.4.</span> <span class="post-toc-text">Loss 计算</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结-2"><span class="post-toc-number">3.2.5.</span> <span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DeepLab"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">DeepLab</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Deeplab-v1"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">Deeplab v1</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Astrous-conv"><span class="post-toc-number">3.3.1.1.</span> <span class="post-toc-text">Astrous conv</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ASPP结构"><span class="post-toc-number">3.3.1.2.</span> <span class="post-toc-text">ASPP结构</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Deeplab-v2"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">Deeplab v2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Deeplab-v3"><span class="post-toc-number">3.3.3.</span> <span class="post-toc-text">Deeplab v3</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ASPP的改进"><span class="post-toc-number">3.3.3.1.</span> <span class="post-toc-text">ASPP的改进</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#“串联”结构"><span class="post-toc-number">3.3.3.2.</span> <span class="post-toc-text">“串联”结构</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#人体行为识别"><span class="post-toc-number">4.</span> <span class="post-toc-text">人体行为识别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3D-CNN"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">3D CNN</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要-1"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#介绍"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#贡献"><span class="post-toc-number">4.1.2.1.</span> <span class="post-toc-text">贡献</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3D卷积神经网络"><span class="post-toc-number">4.1.2.2.</span> <span class="post-toc-text">3D卷积神经网络</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3D-CNN架构"><span class="post-toc-number">4.1.2.3.</span> <span class="post-toc-text">3D CNN架构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Model-Regularization（模型规范化）"><span class="post-toc-number">4.1.2.4.</span> <span class="post-toc-text">Model Regularization（模型规范化）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Model-Combination-模型组合"><span class="post-toc-number">4.1.2.5.</span> <span class="post-toc-text">Model Combination (模型组合)</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#双流法-Two-Stream"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">双流法 Two-Stream</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 15 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/head_pic/Unsplash-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                The Basics of Computer Vision
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/figure.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Jiawen Zhang</strong>
+        <span>Apr 14, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/CNN/" rel="tag">CNN</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Computer-Vision/" rel="tag">Computer Vision</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Object-Detection/" rel="tag">Object Detection</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Semantic-Segmentation/" rel="tag">Semantic Segmentation</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=The Basics of Computer Vision&url=http://yoursite.com/2021/04/14/The_basics_of_computer_vision/index.html&pic=http://yoursite.com/img/web_icon.jpg&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=The Basics of Computer Vision&url=http://yoursite.com/2021/04/14/The_basics_of_computer_vision/index.html&via=Jiawen Zhang" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2021/04/14/The_basics_of_computer_vision/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2021/04/14/The_basics_of_computer_vision/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>对计算机视觉的基础知识，重要工作，以及相关任务进行了梳理。</p>
+<a id="more"></a>
+<h1 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h1><h2 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h2><h3 id="卷积神经网络的层级结构"><a href="#卷积神经网络的层级结构" class="headerlink" title="卷积神经网络的层级结构"></a>卷积神经网络的层级结构</h3><ul>
+<li>数据输入层/ Input layer</li>
+<li>卷积计算层/ CONV layer</li>
+<li>ReLU激励层 / ReLU layer</li>
+<li>池化层 / Pooling layer</li>
+<li>全连接层 / FC layer</li>
+</ul>
+<h4 id="数据输入层"><a href="#数据输入层" class="headerlink" title="数据输入层"></a>数据输入层</h4><p>该层要做的处理主要是对原始图像数据进行预处理，其中包括：</p>
+<ul>
+<li>去均值：把输入数据各个维度都中心化为0，如下图所示，其目的就是把样本的中心拉回到坐标系原点上。</li>
+<li>归一化：幅度归一化到同样的范围，如下所示，即减少各维度数据取值范围的差异而带来的干扰，比如，我们有两个维度的特征A和B，A范围是0到10，而B范围是0到10000，如果直接使用这两个特征是有问题的，好的做法就是归一化，即A和B的数据都变为0到1的范围。</li>
+<li>PCA/白化：用PCA降维；白化是对数据各个特征轴上的幅度归一化</li>
+</ul>
+<p>去均值与归一化：</p>
+<p><a href="https://imgchr.com/i/NMr1c4" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/19/NMr1c4.md.png" alt="NMr1c4.md.png"></a></p>
+<p>PCA/白化：</p>
+<p><a href="https://imgchr.com/i/NMr3jJ" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/19/NMr3jJ.md.png" alt="NMr3jJ.md.png"></a></p>
+<h3 id="卷积计算层"><a href="#卷积计算层" class="headerlink" title="卷积计算层"></a>卷积计算层</h3><p>这一层就是卷积神经网络最重要的一个层次，也是“卷积神经网络”的名字来源。<br>在这个卷积层，有两个关键操作：</p>
+<ul>
+<li>局部关联。每个神经元看做一个滤波器(filter)</li>
+<li>窗口(receptive field)滑动， filter对局部数据计算</li>
+</ul>
+<p>先介绍卷积层遇到的几个名词：</p>
+<ul>
+<li>深度/depth<br>有多少个滤波器，depth就是多少</li>
+<li>步长/stride （窗口一次滑动的长度）</li>
+<li>填充值/zero-padding<br>当窗口无法将所有像素遍历完时，添加填充值</li>
+</ul>
+<p>这里的蓝色矩阵就是输入的图像，粉色矩阵就是卷积层的神经元，这里表示了有两个神经元（w0,w1）。绿色矩阵就是经过卷积运算后的输出矩阵，这里的步长设置为2。<br>蓝色的矩阵(输入图像)对粉色的矩阵（filter）进行矩阵内积计算并将三个内积运算的结果与偏置值b相加（比如上面图的计算：2+（-2+1-2）+（1-2-2） + 1= 2 - 3 - 3 + 1 = -3），计算后的值就是绿框矩阵的一个元素。</p>
+<p><a href="https://imgchr.com/i/NMyEoq" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/19/NMyEoq.md.png" alt="NMyEoq.md.png"></a></p>
+<h5 id="参数共享机制"><a href="#参数共享机制" class="headerlink" title="参数共享机制"></a>参数共享机制</h5><ul>
+<li>在卷积层中每个神经元连接数据窗的权重是固定的，每个神经元只关注一个特性。神经元就是图像处理中的滤波器，比如边缘检测专用的Sobel滤波器，即卷积层的每个滤波器都会有自己所关注一个图像特征，比如垂直边缘，水平边缘，颜色，纹理等等，这些所有神经元加起来就好比就是整张图像的特征提取器集合。</li>
+<li>需要估算的权重个数减少: AlexNet 1亿 =&gt; 3.5w</li>
+<li>一组固定的权重和不同窗口内数据做内积: 卷积</li>
+</ul>
+<h4 id="激励层"><a href="#激励层" class="headerlink" title="激励层"></a>激励层</h4><p>把卷积层输出结果做非线性映射。</p>
+<p><a href="https://imgchr.com/i/NMyrTI" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/19/NMyrTI.md.png" alt="NMyrTI.md.png"></a></p>
+<p>CNN采用的激励函数一般为ReLU(The Rectified Linear Unit/修正线性单元)，它的特点是收敛快，求梯度简单，但较脆弱，图像如下。</p>
+<p><a href="https://imgchr.com/i/NMyD0A" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/19/NMyD0A.md.png" alt="NMyD0A.md.png"></a></p>
+<p>激励层的实践经验：</p>
+<ol>
+<li>不要用sigmoid！不要用sigmoid！不要用sigmoid！</li>
+<li>首先试RELU，因为快，但要小心点</li>
+<li>如果2失效，请用Leaky ReLU或者Maxout</li>
+<li>某些情况下tanh倒是有不错的结果，但是很少</li>
+</ol>
+<h4 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h4><p>池化层夹在连续的卷积层中间， 用于压缩数据和参数的量，减小过拟合。<br>简而言之，如果输入是图像的话，那么池化层的最主要作用就是压缩图像。</p>
+<p>这里再展开叙述池化层的具体作用。</p>
+<ol>
+<li>特征不变性，也就是我们在图像处理中经常提到的特征的尺度不变性，池化操作就是图像的resize，平时一张狗的图像被缩小了一倍我们还能认出这是一张狗的照片，这说明这张图像中仍保留着狗最重要的特征，我们一看就能判断图像中画的是一只狗，图像压缩时去掉的信息只是一些无关紧要的信息，而留下的信息则是具有尺度不变性的特征，是最能表达图像的特征。</li>
+<li>特征降维，我们知道一幅图像含有的信息是很大的，特征也很多，但是有些信息对于我们做图像任务时没有太多用途或者有重复，我们可以把这类冗余信息去除，把最重要的特征抽取出来，这也是池化操作的一大作用。</li>
+<li>在一定程度上防止过拟合，更方便优化。</li>
+</ol>
+<p><a href="https://imgchr.com/i/NMyL1U" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/19/NMyL1U.md.png" alt="NMyL1U.md.png"></a></p>
+<p>池化层用的方法有Max pooling 和 average pooling，而实际用的较多的是Max pooling。<br>这里就说一下Max pooling，其实思想非常简单。对于每个2 <em> 2的窗口选出最大的数作为输出矩阵的相应元素的值，比如输入矩阵第一个2 </em> 2窗口中最大的数是6，那么输出矩阵的第一个元素就是6，如此类推。</p>
+<p><a href="https://imgchr.com/i/NMyqpT" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/19/NMyqpT.md.png" alt="NMyqpT.md.png"></a></p>
+<h4 id="全连接层"><a href="#全连接层" class="headerlink" title="全连接层"></a>全连接层</h4><p>两层之间所有神经元都有权重连接，通常全连接层在卷积神经网络尾部。也就是跟传统的神经网络神经元的连接方式是一样的.</p>
+<p><a href="https://imgchr.com/i/NMyOcF" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/19/NMyOcF.md.png" alt="NMyOcF.md.png"></a></p>
+<h3 id="一般CNN结构"><a href="#一般CNN结构" class="headerlink" title="一般CNN结构"></a>一般CNN结构</h3><ol>
+<li>INPUT</li>
+<li>[[CONV -&gt; RELU]N -&gt; POOL?]M</li>
+<li>[FC -&gt; RELU]*K</li>
+<li>FC</li>
+</ol>
+<h3 id="训练算法"><a href="#训练算法" class="headerlink" title="训练算法"></a>训练算法</h3><ol>
+<li>同一般机器学习算法，先定义Loss function，衡量和实际结果之间差距。</li>
+<li>找到最小化损失函数的W和b， CNN中用的算法是SGD（随机梯度下降）。</li>
+</ol>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>共享卷积核，对高维数据处理无压力</li>
+<li>无需手动选取特征，训练好权重，即得特征分类效果好</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>物理含义不明确（也就说，我们并不知道没个卷积层到底提取到的是什么特征，而且神经网络本身就是一种难以解释的“黑箱模型”）</li>
+</ul>
+<h3 id="典型CNN"><a href="#典型CNN" class="headerlink" title="典型CNN"></a>典型CNN</h3><ul>
+<li>LeNet，这是最早用于数字识别的CNN</li>
+<li>AlexNet， 2012 ILSVRC比赛远超第2名的CNN，比LeNet更深，用多层小卷积层叠加替换单大卷积层。</li>
+<li>ZF Net， 2013 ILSVRC比赛冠军</li>
+<li>GoogLeNet， 2014 ILSVRC比赛冠军</li>
+<li>VGGNet， 2014 ILSVRC比赛中的模型，图像识别略差于GoogLeNet，但是在很多图像转化学习问题(比如object detection)上效果奇好</li>
+</ul>
+<h3 id="Fine-tuning"><a href="#Fine-tuning" class="headerlink" title="Fine-tuning"></a>Fine-tuning</h3><p>fine-tuning就是使用已用于其他目标、预训练好模型的权重或者部分权重，作为初始值开始训练。</p>
+<p>具体做法：</p>
+<ul>
+<li>复用相同层的权重，新定义层取随机权重初始值</li>
+<li>调大新定义层的的学习率，调小复用层学习率</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>卷积网络在本质上是一种输入到输出的映射，它能够学习大量的输入与输出之间的映射关系，而不需要任何输入和输出之间的精确的数学表达式，只要用已知的模式对卷积网络加以训练，网络就具有输入输出对之间的映射能力。</p>
+<p>CNN一个非常重要的特点就是头重脚轻（越往输入权值越小，越往输出权值越多），呈现出一个倒三角的形态，这就很好地避免了BP神经网络中反向传播的时候梯度损失得太快。</p>
+<p>卷积神经网络CNN主要用来识别位移、缩放及其他形式扭曲不变性的二维图形。由于CNN的特征检测层通过训练数据进行学习，所以在使用CNN时，避免了显式的特征抽取，而隐式地从训练数据中进行学习；再者由于同一特征映射面上的神经元权值相同，所以网络可以并行学习，这也是卷积网络相对于神经元彼此相连网络的一大优势。卷积神经网络以其局部权值共享的特殊结构在语音识别和图像处理方面有着独特的优越性，其布局更接近于实际的生物神经网络，权值共享降低了网络的复杂性，特别是多维输入向量的图像可以直接输入网络这一特点避免了特征提取和分类过程中数据重建的复杂度。</p>
+<h2 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h2><p>Very Deep Convolutional Networks for Large-Scale Image Recognition<br>intro：ICLR 2015</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>VGG16采用连续的几个3x3的卷积核代替AlexNet中的较大卷积核（11x11，7x7，5x5）。对于给定的感受野（与输出有关的输入图片的局部大小），采用堆积的小卷积核是优于采用大的卷积核，因为多层非线性层可以增加网络深度来保证学习更复杂的模式，而且代价还比较小（参数更少）。</p>
+<p>简单来说，在VGG中，使用了3个3x3卷积核来代替7x7卷积核，使用了2个3x3卷积核来代替5*5卷积核，这样做的主要目的是在保证具有相同感知野的条件下，提升了网络的深度，在一定程度上提升了神经网络的效果。</p>
+<p>比如，3个步长为1的3x3卷积核的一层层叠加作用可看成一个大小为7的感受野（其实就表示3个3x3连续卷积相当于一个7x7卷积），其参数总量为 3x(9xC^2) ，如果直接使用7x7卷积核，其参数总量为 49xC^2 ，这里 C 指的是输入和输出的通道数。很明显，27xC^2小于49xC^2，即减少了参数；而且3x3卷积核有利于更好地保持图像性质。</p>
+<p><a href="https://imgchr.com/i/NMBbss" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/19/NMBbss.md.png" alt="NMBbss.md.png"></a></p>
+<ul>
+<li>VGG16包含了16个隐藏层（13个卷积层和3个全连接层），如上图中的D列所示</li>
+<li>VGG19包含了19个隐藏层（16个卷积层和3个全连接层），如上图中的E列所示</li>
+</ul>
+<p>VGG网络的结构非常一致，从头到尾全部使用的是3x3的卷积和2x2的max pooling。</p>
+<h3 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="VGG优点"><a href="#VGG优点" class="headerlink" title="VGG优点"></a>VGG优点</h4><ul>
+<li>VGGNet的结构非常简洁，整个网络都使用了同样大小的卷积核尺寸（3x3）和最大池化尺寸（2x2）。</li>
+<li>几个小滤波器（3x3）卷积层的组合比一个大滤波器（5x5或7x7）卷积层好</li>
+<li>验证了通过不断加深网络结构可以提升性能。</li>
+</ul>
+<p>更少的参数意味着减少过拟合，而且更重要的是3个3x3卷积层拥有比1个7x7的卷积层更少的非线性变换（前者拥有3次而后者只有一次），使得CNN对特征的学习能力更强。</p>
+<h4 id="VGG缺点"><a href="#VGG缺点" class="headerlink" title="VGG缺点"></a>VGG缺点</h4><ul>
+<li>VGG耗费更多计算资源，并且使用了更多的参数（这里不是3x3卷积的锅），导致更多的内存占用（140M）。其中绝大多数的参数都是来自于第一个全连接层。VGG可是有3个全连接层啊！</li>
+</ul>
+<p>PS：有的文章称：发现这些全连接层即使被去除，对于性能也没有什么影响，这样就显著降低了参数数量。</p>
+<h2 id="Inception"><a href="#Inception" class="headerlink" title="Inception"></a>Inception</h2><h3 id="Inception-v1"><a href="#Inception-v1" class="headerlink" title="Inception v1"></a>Inception v1</h3><h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><p>Inception V1是来源于《Going deeper with convolutions》，论文主要介绍了，如何在有限的计算资源内，进一步提升网络的性能。</p>
+<p>提升网络的性能的方法有很多，例如硬件的升级，更大的数据集等。但一般而言，提升网络性能最直接的方法是增加网络的深度和宽度。其中，网络的深度只的是网络的层数，宽度指的是每层的通道数。但是，这种方法会带来两个不足：</p>
+<ol>
+<li>容易发生过拟合。当深度和宽度不断增加的时候，需要学习到的参数也不断增加，巨大的参数容易发生过拟合。</li>
+<li>均匀地增加网络的大小，会导致计算量的加大。</li>
+</ol>
+<p>因此，解决上述不足的方法是引入稀疏特性和将全连接层转换成稀疏连接。这个思路的缘由来自于两方面：</p>
+<ol>
+<li>生物的神经系统连接是稀疏的；</li>
+<li>有文献指出：如果数据集的概率分布能够被大型且非常稀疏的DNN网络所描述的话，那么通过分析前面层的激活值的相关统计特性和将输出高度相关的神经元进行聚类，便可逐层构建出最优的网络拓扑结构。</li>
+</ol>
+<p>说明臃肿的网络可以被不失性能地简化。</p>
+<p>但是，现在的计算框架对非均匀的稀疏数据进行计算是非常低效的，主要是因为查找和缓存的开销。因此，作者提出了一个想法，既能保持滤波器级别的稀疏特性，又能充分密集矩阵的高计算性能。有大量文献指出，将稀疏矩阵聚类成相对密集的子矩阵，能提高计算性能。根据此想法，提出了Inception结构。</p>
+<p>inception结构的主要思路是：如何使用一个密集成分来近似或者代替最优的局部稀疏结构。inception V1的结构如下面两个图所示。</p>
+<p><a href="https://imgchr.com/i/NQeZss" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/20/NQeZss.md.png" alt="NQeZss.md.png"></a></p>
+<p>对于上图中的（a）做出几点解释：</p>
+<ol>
+<li>采用不同大小的卷积核意味着不同大小的感受野，最后拼接意味着不同尺度特征的融合； </li>
+<li>之所以卷积核大小采用1、3和5，主要是为了方便对齐；</li>
+<li>文章说很多地方都表明pooling挺有效，所以Inception里面也嵌入了；</li>
+<li>网络越到后面，特征越抽象，而且每个特征所涉及的感受野也更大了，因此随着层数的增加，3x3和5x5卷积的比例也要增加。</li>
+</ol>
+<p>但是，使用5x5的卷积核仍然会带来巨大的计算量。 为此，文章借鉴NIN，采用1x1卷积核来进行降维，如图中（b）所示。</p>
+<p>例如：上一层的输出为100x100x128，经过具有256个输出的5x5卷积层之后(stride=1，pad=2)，输出数据的大小为100x100x256。其中，卷积层的参数为5x5x128x256。假如上一层输出先经过具有32个输出的1x1卷积层，再经过具有256个输出的5x5卷积层，那么最终的输出数据的大小仍为100x100x256，但卷积参数量已经减少为1x1x128x32 + 5x5x32x256，大约减少了4倍。</p>
+<p>在inception结构中，大量采用了1x1的矩阵，主要是两点作用：</p>
+<ol>
+<li>对数据进行降维</li>
+<li>引入更多的非线性，提高泛化能力，因为卷积后要经过ReLU激活函数</li>
+</ol>
+<h4 id="GoogLeNet"><a href="#GoogLeNet" class="headerlink" title="GoogLeNet"></a>GoogLeNet</h4><p>GoogLeNet是由inception模块进行组成的，结构太大了，就不放出来了，这里做出几点说明：</p>
+<p>　　a）GoogLeNet采用了模块化的结构，方便增添和修改；</p>
+<p>　　b）网络最后采用了average pooling来代替全连接层，想法来自NIN,事实证明可以将TOP1 accuracy提高0.6%。但是，实际在最后还是加了一个全连接层，主要是为了方便以后大家finetune;</p>
+<p>　　c）虽然移除了全连接，但是网络中依然使用了Dropout；</p>
+<p>　　d）为了避免梯度消失，网络额外增加了2个辅助的softmax用于向前传导梯度。文章中说这两个辅助的分类器的loss应该加一个衰减系数，但看源码中的model也没有加任何衰减。此外，实际测试的时候，这两个额外的softmax会被去掉。</p>
+<h4 id="note-1x1的卷积核的作用"><a href="#note-1x1的卷积核的作用" class="headerlink" title="note:1x1的卷积核的作用"></a>note:1x1的卷积核的作用</h4><h5 id="灵活的控制特征图的深度"><a href="#灵活的控制特征图的深度" class="headerlink" title="灵活的控制特征图的深度"></a>灵活的控制特征图的深度</h5><p>1x1的卷积核由于大小只有1x1，所以并不需要考虑像素跟周边像素的关系，它主要用于调节通道数，对不同的通道上的像素点进行线性组合，然后进行非线性化操作，可以完成升维和降维的功能，如下图所示，选择2个1x1大小的卷积核，那么特征图的深度将会从3变成2，如果使用4个1x1的卷积核，特征图的深度将会由3变成4。<br><a href="https://imgchr.com/i/NQeqwq" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/20/NQeqwq.md.png" alt="NQeqwq.md.png"></a></p>
+<h5 id="减少参数"><a href="#减少参数" class="headerlink" title="减少参数"></a>减少参数</h5><p>前面所说的降维，其实也是减少了参数，因为特征图少了，参数也自然跟着就减少，相当于在特征图的通道数上进行卷积，压缩特征图，二次提取特征，使得新特征图的特征表达更佳。接着再通过两个例子来看看它是如何减少参数的。<br>在GoogleNet的3a模块，假设输入特征图的大小是28*28*192,1x1卷积通道为64,3x3卷积通道为128,5x5卷积通道为32，左边的卷积核参数计算如下：<br>192 × (1×1×64) +192 × (3×3×128) + 192 × (5×5×32) = 387072<br>而右图的3x3卷积层前加入通道数为96的1x1的卷积，5x5的特征图前加入通道数为16的1x1的卷积，参数的计算如下：<br>192 × (1×1×64) +（192×1×1×96+ 96 × 3×3×128）+（192×1×1×16+16×5×5×32）= 157184</p>
+<p>Factorizing Convolutions with Large Filter Size，也就是分解大的卷积，用小的卷积核替换大的卷积核，因为大尺寸的卷积核可以带来更大的感受野，但也意味着更多的参数，比如5x5卷积核参数是3x3卷积核的25/9=2.78倍。因此可以用2个连续的3x3卷积层(stride=1)组成的小网络来代替单个的5x5卷积层，(保持感受野范围的同时又减少了参数量),也就产生了Inception V2;而nxn的卷积核又可以通过1xn卷积后接nx1卷积来替代,也就是Inception V3结构,但是作者发现在网络的前期使用这种分解效果并不好，还有在中度大小的feature map上使用效果才会更好。（对于mxm大小的feature map,建议m在12到20之间）.</p>
+<p>如下图：从左到右是Inception V1~IncVeption V3,需要指出的是将7´7卷积拆成1x7卷积和7x1卷积，比拆成3个3x3卷积更节约参数。</p>
+<p><a href="https://imgchr.com/i/NQmNcQ" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/20/NQmNcQ.md.png" alt="NQmNcQ.md.png"></a></p>
+<h5 id="现了跨通道的信息组合，并增加了非线性特征"><a href="#现了跨通道的信息组合，并增加了非线性特征" class="headerlink" title="现了跨通道的信息组合，并增加了非线性特征"></a>现了跨通道的信息组合，并增加了非线性特征</h5><p>使用1*1卷积核，实现降维和升维的操作其实就是channel间信息的线性组合变化，3*3，64channels的卷积核前面添加一个1*1，28channels的卷积核，就变成了3*3，28channels的卷积核，原来的64个channels就可以理解为跨通道线性组合变成了28channels，这就是通道间的信息交互。因为1*1卷积核，可以在保持feature map尺度不变的（即不损失分辨率）的前提下大幅增加非线性特性（利用后接的非线性激活函数），把网络做的很deep，增加非线性特性。</p>
+<h3 id="Inception-v2"><a href="#Inception-v2" class="headerlink" title="Inception v2"></a>Inception v2</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Inception v2来自于论文《Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift》。</p>
+<p>训练DNN网络的一个难点是，在训练时每层输入数据的分布会发生改变，所以需要较低的学习率和精心设置初始化参数。只要网络的前面几层发生微小的改变，那么后面几层就会被累积放大下去。一旦网络某一层的输入数据的分布发生改变，那么这一层网络就需要去适应学习这个新的数据分布，所以如果训练过程中，训练数据的分布一直在发生变化，那么将会影响网络的训练速度。作者把网络中间层在训练过程中，数据分布的改变称之为：“Internal  Covariate Shift”。因此，作者提出对数据做归一化的想法。</p>
+<p>对数据进行了BN算法后，具有以下的优点：</p>
+<ol>
+<li>可以设置较大的初始学习率，并且减少对参数初始化的依赖，提高了训练速度；</li>
+<li>这是个正则化模型，因此可以去除dropout和降低L2正则约束参数；</li>
+<li>不需要局部响应归一化层；</li>
+<li>能防止网络陷入饱和，即消除梯度消失</li>
+</ol>
+<h4 id="BN算法"><a href="#BN算法" class="headerlink" title="BN算法"></a>BN算法</h4><p>BN算法通过下面公式，对某一层进行归一化处理，也叫近似白化预处理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\hat&#123;x&#125;^&#123;(k)&#125; &#x3D; \frac&#123;x^&#123;(k)&#125;-E[x^&#123;(k)&#125;]&#125;&#123;\sqrt&#123;Var(x^&#123;(k)&#125;)&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中，由于我们是采用批量梯度下降法的，所以<code>$E[x^{(k)}]$</code>是指在一批数据中，各神经元的平均值；𝑉𝑎𝑟(𝑥(𝑘))是指在一批训练数据时各神经元输入值的标准差。</p>
+<h2 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h2><p>ResNet是当前应用最为广泛的CNN特征提取网络。</p>
+<p>VGG网络试着探寻了一下深度学习网络的深度究竟可以深几许以能持续地提高分类准确率。我们的一般印象当中，深度学习愈是深（复杂，参数多）愈是有着更强的表达能力。凭着这一基本准则CNN分类网络自Alexnet的7层发展到了VGG的16乃至19层，后来更有了Googlenet的22层。可后来我们发现深度CNN网络达到一定深度后再一味地增加层数并不能带来进一步地分类性能提高，反而会招致网络收敛变得更慢，test dataset的分类准确率也变得更差。排除数据集过小带来的模型过拟合等问题后，我们发现过深的网络仍然还会使分类准确度下降（相对于较浅些的网络而言）。</p>
+<p><a href="https://imgchr.com/i/NldRdP" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/20/NldRdP.md.png" alt="NldRdP.md.png"></a></p>
+<h1 id="目标检测"><a href="#目标检测" class="headerlink" title="目标检测"></a>目标检测</h1><h2 id="一文读懂目标检测-（R-CNN-Fast-R-CNN-Faster-R-CNN-YOLO-SSD）"><a href="#一文读懂目标检测-（R-CNN-Fast-R-CNN-Faster-R-CNN-YOLO-SSD）" class="headerlink" title="一文读懂目标检测 （R-CNN, Fast R-CNN, Faster R-CNN, YOLO, SSD）"></a>一文读懂目标检测 （R-CNN, Fast R-CNN, Faster R-CNN, YOLO, SSD）</h2><p><a href="https://blog.csdn.net/gdfyug/article/details/84195634" target="_blank" rel="noopener">https://blog.csdn.net/gdfyug/article/details/84195634</a></p>
+<p><strong>RCNN</strong></p>
+<ol>
+<li>在图像中确定约1000-2000个候选框 (使用选择性搜索Selective Search)</li>
+<li>每个候选框内图像块缩放至相同大小，并输入到CNN内进行特征提取</li>
+<li>对候选框中提取出的特征，使用分类器判别是否属于一个特定类</li>
+<li>对于属于某一类别的候选框，用回归器进一步调整其位置</li>
+</ol>
+<p><strong>Fast R-CNN</strong></p>
+<ol>
+<li>在图像中确定约1000-2000个候选框 (使用选择性搜索)</li>
+<li>对整张图片输进CNN，得到feature map</li>
+<li>找到每个候选框在feature map上的映射patch，将此patch作为每个候选框的卷积特征输入到SPP layer和之后的层</li>
+<li>对候选框中提取出的特征，使用分类器判别是否属于一个特定类</li>
+<li>对于属于某一类别的候选框，用回归器进一步调整其位置</li>
+</ol>
+<p><strong>Faster R-CNN</strong></p>
+<ol>
+<li>对整张图片输进CNN，得到feature map</li>
+<li>卷积特征输入到RPN，得到候选框的特征信息</li>
+<li>对候选框中提取出的特征，使用分类器判别是否属于一个特定类</li>
+<li>对于属于某一类别的候选框，用回归器进一步调整其位置</li>
+</ol>
+<p>简言之，即如本文开头所列</p>
+<p>R-CNN（Selective Search + CNN + SVM）</p>
+<p>SPP-net（ROI Pooling）</p>
+<p>Fast R-CNN（Selective Search + CNN + ROI）</p>
+<p>Faster R-CNN（RPN + CNN + ROI）</p>
+<p><strong>YOLO</strong></p>
+<ol>
+<li>给个一个输入图像，首先将图像划分成7*7的网格</li>
+<li>对于每个网格，我们都预测2个边框（包括每个边框是目标的置信度以及每个边框区域在多个类别上的概率）</li>
+<li>根据上一步可以预测出7<em>7</em>2个目标窗口，然后根据阈值去除可能性比较低的目标窗口，最后NMS去除冗余窗口即可</li>
+</ol>
+<p>（非极大值抑制NMS：<a href="https://www.julyedu.com/question/big/kp_id/26/ques_id/2141）。" target="_blank" rel="noopener">https://www.julyedu.com/question/big/kp_id/26/ques_id/2141）。</a></p>
+<p>可以看到整个过程非常简单，不再需要中间的region proposal找目标，直接回归便完成了位置和类别的判定。</p>
+<p>YOLO将目标检测任务转换成一个回归问题，大大加快了检测的速度，使得YOLO可以每秒处理45张图像。而且由于每个网络预测目标窗口时使用的是全图信息，使得false positive比例大幅降低（充分的上下文信息）。</p>
+<p>但是YOLO也存在问题：没有了Region Proposal机制，只使用7*7的网格回归会使得目标不能非常精准的定位，这也导致了YOLO的检测精度并不是很高。</p>
+<h2 id="SSD-（Single-Shot-MultiBox-Detector）"><a href="#SSD-（Single-Shot-MultiBox-Detector）" class="headerlink" title="SSD （Single Shot MultiBox Detector）"></a>SSD （Single Shot MultiBox Detector）</h2><p><a href="https://blog.csdn.net/qianqing13579/article/details/82106664" target="_blank" rel="noopener">https://blog.csdn.net/qianqing13579/article/details/82106664</a></p>
+<p><a href="https://www.cnblogs.com/MY0213/p/9858383.html" target="_blank" rel="noopener">https://www.cnblogs.com/MY0213/p/9858383.html</a></p>
+<p><a href="https://imgchr.com/i/NG46jH" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NG46jH.md.png" alt="NG46jH.md.png"></a></p>
+<p><a href="https://imgchr.com/i/NGIRtP" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NGIRtP.md.png" alt="NGIRtP.md.png"></a></p>
+<p><a href="https://imgchr.com/i/NGIWff" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NGIWff.md.png" alt="NGIWff.md.png"></a></p>
+<p><strong>SSD算法步骤</strong></p>
+<ol>
+<li><p>输入一幅图片（200x200），将其输入到预训练好的分类网络中来获得不同大小的特征映射，修改了传统的VGG16网络；</p>
+<p> SSD将backbone中fc6改为3 <em> 3卷积层，fc7改为1 </em> 1卷积层，池化层pool5由原来的stride=2的2 <em> 2变成stride=1的3 </em> 3。为了不改变特征图的大小，同时获得更大的感受野，Conv6为空洞卷积，dilation=6。在backbone之后增加了8个卷积层(Extra Feature Layers)。</p>
+</li>
+</ol>
+<p>note:下采样和扩张卷积可以增大感受野</p>
+<ol>
+<li><p>网络中共有6个卷积层（Conv4_3, Conv7, Conv8_2, Conv9_2, Conv10_2, Conv11_2）的特征图被用来进行检测，6个特征图分别预测不同大小(scales)和长宽比(ratios)的边界框。<br> SSD为每个检测层都预定义了不同大小的先验框(Prior boxes), Conv4_3、Conv10_2和Conv11_2分别有4种先验框，而Conv7、Conv8_2和Conv9_2分别有6种先验框，即对应于特征图上的每个像素，都会生成K（prior box种类）个prior box。prior box类似于Faster rcnn中的anchor。<br> 网络6个检测层总共预测的边界框数目为8732（38 <em> 38 </em> 4 + 19 <em> 19 </em> 6 + 10 <em> 10 </em> 6 + 5 <em> 5 </em> 6 + 3 <em> 3 </em> 4 + 1 <em> 1 </em> 4）。</p>
+</li>
+<li><p>将不同feature map获得的BB结合起来，经过NMS（非极大值抑制）方法来抑制掉一部分重叠或者不正确的BB，生成最终的BB集合（即检测结果）；</p>
+</li>
+</ol>
+<p>SSD论文贡献：</p>
+<ol>
+<li>引入了一种单阶段的检测器，比以前的算法YOLO更准更快，并没有使用RPN和Pooling操作；</li>
+<li>使用一个小的卷积滤波器应用在不同的feature map层从而预测BB的类别的BB偏差；</li>
+<li>可以在更小的输入图片中得到更好的检测效果（相比Faster-rcnn）；</li>
+<li>在多个数据集（PASCAL、VOC、COCO、ILSVRC）上面的测试结果表明，它可以获得更高的mAp值</li>
+</ol>
+<p>Detector和Classfier对每个特征图使用不同的3 <em> 3卷积核进行预测，卷积核的数目由每个特征图上定义的priors box种类决定。比如Conv4_3输出的特征图，定义了4种prior box，那么Detector得到的特征图通道数为4 </em> 4，Classifier得到的特征图通道数为4 * 21(voc类别数，包含背景)。</p>
+<p>Detector输出每个prior box的坐标偏移，Classifier输出每个类的类别概率得分。</p>
+<p>网络输入大小为300 * 300，数据集使用Voc数据集（20个类别）。</p>
+<p><a href="https://imgchr.com/i/NJSmJe" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NJSmJe.md.png" alt="NJSmJe.md.png"></a></p>
+<p>如上图所示，我们可以看到左边的方法针对输入的图片获取不同尺度的特征映射，但是在预测阶段仅仅使用了最后一层的特征映射；而SSD不仅获得不同尺度的特征映射，同时在不同的特征映射上面进行预测，它在增加运算量的同时可能会提高检测的精度，因为它具有更多的可能性。</p>
+<h3 id="Prior-Box"><a href="#Prior-Box" class="headerlink" title="Prior Box"></a>Prior Box</h3><p>缩进在SSD中引入了Prior Box，实际上与anchor非常类似，就是一些目标的预选框，后续通过softmax分类+bounding box regression获得真实目标的位置。SSD按照如下规则生成prior box：</p>
+<ul>
+<li>以feature map上每个点的中点为中心（offset=0.5），生成一些列同心的prior box（然后中心点的坐标会乘以step，相当于从feature map位置映射回原图位置）<ul>
+<li>正方形prior box最小边长为<code>$min_{size}$</code>,最大边长为<code>$\sqrt{min_{size}*max_{siza}}$</code></li>
+<li>每在prototxt设置一个aspect ratio，会生成2个长方形，长宽为：<code>$\sqrt{aspect_{ratio}}*min_{size}$</code>和<code>$1/\sqrt{aspect_{ratio}}*min_size$</code></li>
+</ul>
+</li>
+</ul>
+<p><a href="https://imgchr.com/i/NGqatA" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NGqatA.md.png" alt="NGqatA.md.png"></a></p>
+<ul>
+<li>而每个feature map对应prior box的min_size和max_size由以下公式决定，公式中m是使用feature map的数量（SSD 300中m=6），6个特征图的尺寸分别为(38, 19, 10, 5, 3, 1), 它们对应的先验框尺寸随着特征图的缩小线性增大：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s_k &#x3D; s_&#123;min&#125; + \frac&#123;s_&#123;max&#125;-s_&#123;min&#125;&#125;&#123;m-1&#125;(k-1),\quad k \in [1,m]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>第一层feature map对应的min_size=S1，max_size=S2；第二层min_size=S2，max_size=S3；其他类推。</p>
+<p>Sk表示先验框大小和图片大小的比例，Smin表示最小比例，设为0.2，Smax表示最大比例，设为0.9 。对于第一个特征图Conv4_3，比例单独设置为Smin/2 = 0.1，其对应大小为300 * 0.1 = 30。</p>
+<p>对于之后的特征图，先验框的大小按照上面的公式线性增加，但是需现将比例扩大100倍：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s_k &#x3D; s_&#123;min&#125; + \frac&#123;s_&#123;max&#125;*100-s_&#123;min&#125;*100&#125;&#123;m-1&#125;(k-1),\quad k \in [1,m]</span><br></pre></td></tr></table></figure><br>这样计算的step = (90 - 20)/(5 - 1)=17.5，由于像素已经是最小单位，不可再分，需要对步长进行取整，step=17, 从而得到第二层及之后Sk*100 = (20，37, 54, 71, 88), 接着再除以100，就得到一组近似的缩放比(0.1, 0.2, 0.37, 0.54, 0.71, 0.88)，使用这组缩放比来计算先验框的尺寸，6个特征图对应的先验框尺寸分别为30，60，111，162，213，264。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>min_size</th>
+<th>max_size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conv4_3</td>
+<td>30</td>
+<td>60</td>
+</tr>
+<tr>
+<td>fc7</td>
+<td>60</td>
+<td>111</td>
+</tr>
+<tr>
+<td>conv6_2</td>
+<td>111</td>
+<td>162</td>
+</tr>
+<tr>
+<td>conv7_2</td>
+<td>162</td>
+<td>213</td>
+</tr>
+<tr>
+<td>conv8_2</td>
+<td>213</td>
+<td>264</td>
+</tr>
+<tr>
+<td>conv9_2</td>
+<td>264</td>
+<td>315</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>不过依然可以看出，SSD使用低层feature map检测小目标，使用高层feature map检测大目标，这也应该是SSD的突出贡献了。</p>
+<p>得到每个特征图对应的基础先验框尺寸（最中间小正方形的大小）后，需要根据基础尺寸来生成k个先验框。基础先验框尺寸对应特征图定义的最小正方形先验框，最外侧大正方形先验框的尺寸为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s_k^&#39; &#x3D; \sqrt&#123;s_k * s_&#123;k+1&#125;&#125;</span><br></pre></td></tr></table></figure><br>而最后一层最大的正方形先验框尺寸直接通过300 * 1.05=315给出。</p>
+<p>正方形的尺寸确定了，那长方形先验框的尺寸如何确定呢，网络定义了一组长宽比ar={1, 2, 3, 1/2, 1/3}, Sk为基础框尺寸。只定义了4种先验框的特征图，不会使用3和1/3两种长宽比。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w_k^a &#x3D; s_k \sqrt&#123;a_r&#125;, \quad h^a_k &#x3D; \frac&#123;s_k&#125;&#123;a_r&#125;</span><br></pre></td></tr></table></figure><br>每个单元先验框的中心处于每个单元的中心，即：<br><code>$(\frac{1+0.5}{|f_k|},\frac{j+0.5}{|f_k|}), i,j, \in [0,|f_k|]$</code>,其中<code>$f_k$</code>为特征图大小。<br>需要注意的是，以上计算的先验框的尺寸，都是根据输入图像的大小来计算的。</p>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p>SSD网络的关键在于MultiBox detection, 多个特征图多尺度检测。之后的Yolov3中同样借鉴了这个思路。同时它还使用了更多的精心挑选的先验框（一共30种先验框，共8732个），让网络的的检测效果更好。SSD对小目标的检测效果之所以不太好，主要原因可能在于，大的特征图负责检测小物体，小的特征图负责检测大的物体，大的特征图具有更多的位置信息，但缺少足够的语义信息，而小的特征图具有更多的语义信息，却因为不断的下采样丢失了大量的位置信息。之后的Yolov3在借鉴SSD多尺度多框思路的同时，也利用了跳过连接，融合高分辨率的特征图和包含更多语义信息的特征图，从而更好的定位。</p>
+<p>SSD效果好主要有三点原因：</p>
+<ol>
+<li>多尺度</li>
+<li>设置了多种宽高比的anchor</li>
+<li>数据增强</li>
+</ol>
+<h2 id="FPN-（Feature-Pyramid-Networks）"><a href="#FPN-（Feature-Pyramid-Networks）" class="headerlink" title="FPN （Feature Pyramid Networks）"></a>FPN （Feature Pyramid Networks）</h2><p>reference：<a href="https://www.jianshu.com/p/5a28ae9b365d" target="_blank" rel="noopener">https://www.jianshu.com/p/5a28ae9b365d</a></p>
+<p>特征金字塔可以在速度和准确率之间进行权衡，可以通过它获得更加鲁棒的语义信息。图像中存在不同尺寸的目标，而不同的目标具有不同的特征，利用浅层的特征就可以将简单的目标的区分开来；利用深层的特征可以将复杂的目标区分开来。</p>
+<p>FPN是一种利用常规CNN模型来高效提取图片中各维度特征的方法。在计算机视觉学科中，多维度的目标检测一直以来都是通过将缩小或扩大后的不同维度图片作为输入来生成出反映不同维度信息的特征组合。这种办法确实也能有效地表达出图片之上的各种维度特征，但却对硬件计算能力及内存大小有较高要求，因此只能在有限的领域内部使用。</p>
+<p>FPN通过利用常规CNN模型内部从底至上各个层对同一scale图片不同维度的特征表达结构，提出了一种可有效在单一图片视图下生成对其的多维度特征表达的方法。它可以有效地赋能常规CNN模型，从而可以生成出表达能力更强的feature maps以供下一阶段计算机视觉任务像object detection/semantic segmentation等来使用。本质上说它是一种加强主干网络CNN特征表达的方法。</p>
+<p>下图中描述了四种不同的得到一张图片多维度特征组合的方法。</p>
+<p><a href="https://imgchr.com/i/NJPxgg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NJPxgg.md.png" alt="NJPxgg.md.png"></a></p>
+<p>上图(a)中的方法即为常规的生成一张图片的多维度特征组合的经典方法。即对某一输入图片我们通过压缩或放大从而形成不同维度的图片作为模型输入，使用同一模型对这些不同维度的图片分别处理后，最终再将这些分别得到的特征（feature maps）组合起来就得到了我们想要的可反映多维度信息的特征集。此种方法缺点在于需要对同一图片在更改维度后输入处理多次，因此对计算机的算力及内存大小都有较高要求。</p>
+<p>图(b)中的方法则只拿单一维度的图片做为输入，然后经CNN模型处理后，拿最终一层的feature maps作为最终的特征集。显然此种方法只能得到单一维度的信息。优点是计算简单，对计算机算力及内存大小都无过高需求。此方法为大多数R-CNN系列目标检测方法所用像R-CNN/Fast-RCNN/Faster-RCNN等。因此最终这些模型对小维度的目标检测性能不是很好。</p>
+<p>图(c)中的方法同样是拿单一维度的图片做为输入，不过最终选取用于接下来分类或检测任务时的特征组合时，此方法不只选用了最后一层的high level feature maps，同样也会选用稍靠下的反映图片low level 信息的feature maps。然后将这些不同层次（反映不同level的图片信息）的特征简单合并起来（一般为concat处理），用于最终的特征组合输出。此方法可见于SSD当中。不过SSD在选取层特征时都选用了较高层次的网络。比如在它以VGG16作为主干网络的检测模型里面所选用的最低的Convolution的层为Conv4，这样一些具有更低级别信息的层特征像Conv2/Conv3就被它给漏掉了，于是它对更小维度的目标检测效果就不大好。</p>
+<p>图(d)中的方法同图(c)中的方法有些类似，也是拿单一维度的图片作为输入，然后它会选取所有层的特征来处理然后再联合起来做为最终的特征输出组合。（作者在论文中拿Resnet为实例时并没选用Conv1层，那是为了算力及内存上的考虑，毕竟Conv1层的size还是比较大的，所包含的特征跟直接的图片像素信息也过于接近）。另外还对这些反映不同级别图片信息的各层自上向下进行了再处理以能更好地组合从而形成较好的特征表达（详细过程会在下面章节中进一步介绍）。而此方法正是我们本文中要讲的FPN CNN特征提取方法。</p>
+<h3 id="FPN基本架构"><a href="#FPN基本架构" class="headerlink" title="FPN基本架构"></a>FPN基本架构</h3><p>FPN会使用CNN网络中每一层的信息来生成最后的表达特征组合。下图是它的基本架构。从中我们能看到FPN会模型每个CNN层的特征输出进行处理以生成反映此维度信息的特征。而自上至下处理后所生成出的特征之间也有个关联关系，即上层high level的特征会影响下一层次的low level特征表达。最终所有的特征一起用来作为下一步的目标检测或类别分析等任务的输入。</p>
+<p><a href="https://imgchr.com/i/NJiBIP" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NJiBIP.md.png" alt="NJiBIP.md.png"></a></p>
+<h3 id="FPN详细介绍"><a href="#FPN详细介绍" class="headerlink" title="FPN详细介绍"></a>FPN详细介绍</h3><p>FPN是传统CNN网络对图片信息进行表达输出的一种增强。它目的是为了改进CNN网络的特征提取方式，从而可以使最终输出的特征更好地表示出输入图片各个维度的信息。它的基本过程有三个分别为：自下至上的通路即自下至上的不同维度特征生成；自上至下的通路即自上至下的特征补充增强；CNN网络层特征与最终输出的各维度特征之间的关联表达。</p>
+<p><a href="https://imgchr.com/i/NJAlan" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NJAlan.md.png" alt="NJAlan.md.png"></a></p>
+<ul>
+<li>自下至上的通路（Bottom-top pathway）：这个没啥奇怪就是指的普通CNN特征自底至上逐层浓缩表达特征的一个过程。此过程很早即被认识到了即较底的层反映较浅层次的图片信息特征像边缘等；较高的层则反映较深层次的图片特征像物体轮廓、乃至类别等；</li>
+<li>自上至下的通路（Top-bottome pathway）：上层的特征输出一般其feature map size比较小，但却能表示更大维度（同时也是更加high level）的图片信息。此类high level信息经实验证明能够对后续的目标检测、物体分类等任务发挥关键作用。因此我们在处理每一层信息时会参考上一层的high level信息做为其输入（这里只是在将上层feature map等比例放大后再与本层的feature maps做element wise相加）;</li>
+<li>NN层特征与每一级别输出之间的表达关联：在这里作者实验表明使用1x1的Conv即可生成较好的输出特征，它可有效地降低中间层次的channels 数目。最终这些1x1的Convs使得我们输出不同维度的各个feature maps有着相同的channels数目（本文用到的Resnet-101主干网络中，各个层次特征的最终输出channels数目为256）。</li>
+</ul>
+<h1 id="图像分割"><a href="#图像分割" class="headerlink" title="图像分割"></a>图像分割</h1><h2 id="FCN-（Fully-Convolutional-Networks）"><a href="#FCN-（Fully-Convolutional-Networks）" class="headerlink" title="FCN （Fully Convolutional Networks）"></a>FCN （Fully Convolutional Networks）</h2><p>《Fully Convolutional Networks for Semantic Segmentation》</p>
+<p>reference：<a href="https://blog.csdn.net/shenxiaolu1984/article/details/51348149#fn:2" target="_blank" rel="noopener">https://blog.csdn.net/shenxiaolu1984/article/details/51348149#fn:2</a></p>
+<h3 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h3><p>该论文包含了当下CNN的三个思潮 </p>
+<ul>
+<li>不含全连接层(fc)的全卷积(fully conv)网络。可适应任意尺寸输入。 </li>
+<li>增大数据尺寸的反卷积(deconv)层。能够输出精细的结果。 </li>
+<li>结合不同深度层结果的跳级(skip)结构。同时确保鲁棒性和精确性。</li>
+</ul>
+<p>一些重点：</p>
+<ul>
+<li>损失函数是在最后一层的 spatial map上的 pixel 的 loss 和，在每一个 pixel 使用 softmax loss</li>
+<li>使用 skip 结构融合多层（3层）输出，底层网络应该可以预测更多的位置信息，因为他的感受野小可以看到小的 pixels</li>
+<li>上采样 lower-resolution layers 时，如果采样后的图因为 padding 等原因和前面的图大小不同，使用 crop ，当裁剪成大小相同的，spatially aligned ，使用 concat 操作融合两个层</li>
+</ul>
+<h4 id="CNN与FCN"><a href="#CNN与FCN" class="headerlink" title="CNN与FCN"></a>CNN与FCN</h4><p>通常cnn网络在卷积之后会接上若干个全连接层，将卷积层产生的特征图（feature map）映射成为一个固定长度的特征向量。一般的CNN结构适用于图像级别的分类和回归任务，因为它们最后都期望得到输入图像的分类的概率，如ALexNet网络最后输出一个1000维的向量表示输入图像属于每一类的概率。</p>
+<p>FCN对图像进行像素级的分类，从而解决了语义级别的图像分割问题。与经典的CNN在卷积层使用全连接层得到固定长度的特征向量进行分类不同，FCN可以接受任意尺寸的输入图像，采用反卷积层对最后一个卷基层的特征图（feature map）进行上采样，使它恢复到输入图像相同的尺寸，从而可以对每一个像素都产生一个预测，同时保留了原始输入图像中的空间信息，最后奇偶在上采样的特征图进行像素的分类。</p>
+<p>全卷积网络(FCN)是从抽象的特征中恢复出每个像素所属的类别。即从图像级别的分类进一步延伸到像素级别的分类。</p>
+<p>FCN将传统CNN中的全连接层转化成一个个的卷积层。如下图所示，在传统的CNN结构中，前5层是卷积层，第6层和第7层分别是一个长度为4096的一维向量，第8层是长度为1000的一维向量，分别对应1000个类别的概率。FCN将这3层表示为卷积层，卷积核的大小(通道数，宽，高)分别为（4096,7,7）、（4096,1,1）、（1000,1,1）。所有的层都是卷积层，故称为全卷积网络。</p>
+<p><a href="https://imgchr.com/i/NJew6K" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NJew6K.md.png" alt="NJew6K.md.png"></a></p>
+<p>简单的说，FCN与CNN的区别在于FCN把CNN最后的全连接层换成卷积层，输出一张已经label好的图。</p>
+<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>网络结构如下。输入可为任意尺寸图像彩色图像；输出与输入尺寸相同，深度为：20类目标+背景=21。 （在PASCAL数据集上进行的，PASCAL一共20类）</p>
+<p><a href="https://imgchr.com/i/NJ1QZ6" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NJ1QZ6.md.png" alt="NJ1QZ6.md.png"></a></p>
+<h4 id="全卷积-提取特征"><a href="#全卷积-提取特征" class="headerlink" title="全卷积-提取特征"></a>全卷积-提取特征</h4><p>虚线上半部分为全卷积网络。（蓝：卷积，绿：max pooling）。对于不同尺寸的输入图像，各层数据的尺寸（height，width）相应变化，深度（channel）不变。<br>这部分由深度学习分类问题中经典网络AlexNet1修改而来。只不过，把最后两个全连接层（fc）改成了卷积层。</p>
+<h4 id="逐像素预测"><a href="#逐像素预测" class="headerlink" title="逐像素预测"></a>逐像素预测</h4><p>虚线下半部分中，分别从卷积网络的不同阶段，以卷积层（蓝色×3）预测深度为21的分类结果。</p>
+<p>怎么具体逐像素点预测分类的：<a href="http://www.cnblogs.com/gujianhan/p/6030639.html" target="_blank" rel="noopener">http://www.cnblogs.com/gujianhan/p/6030639.html</a></p>
+<p>采用反卷积层对最后一个卷积层的feature map进行上采样, 使它恢复到输入图像相同的尺寸，从而可以对每个像素都产生了一个预测, 同时保留了原始输入图像中的空间信息, 最后在上采样的特征图上进行逐像素分类。</p>
+<p>经过多次卷积和pooling以后，得到的图像越来越小，分辨率越来越低。其中图像到 H/32∗W/32 的时候图片是最小的一层时，所产生图叫做<strong>heatmap热图</strong>，热图就是我们最重要的<strong>高维特征图</strong>。</p>
+<p>得到高维特征的heatmap之后就是最重要的一步也是最后的一步对原图像进行upsampling，把图像进行放大、放大、放大，到原图像的大小。</p>
+<p>（也就是将高维特征图翻译成原图时对应的分割图像！！）</p>
+<p>最后的输出是21张heatmap经过upsampling变为原图大小的图片，为了对每个像素进行分类预测label成最后已经进行语义分割的图像，这里有一个小trick，就是最后通过逐个像素地求其在21张图像该像素位置的最大数值描述（概率）作为该像素的分类。因此产生了一张已经分类好的图片。</p>
+<h4 id="反卷积-升采样"><a href="#反卷积-升采样" class="headerlink" title="反卷积-升采样"></a>反卷积-升采样</h4><h5 id="上采样-Upsample"><a href="#上采样-Upsample" class="headerlink" title="上采样(Upsample)"></a>上采样(Upsample)</h5><p>在应用在计算机视觉的深度学习领域，由于输入图像通过卷积神经网络(CNN)提取特征后，输出的尺寸往往会变小，而有时我们需要将图像恢复到原来的尺寸以便进行进一步的计算(e.g.:图像的语义分割)，这个采用扩大图像尺寸，实现图像由小分辨率到大分辨率的映射的操作，叫做上采样(Upsample)。</p>
+<h5 id="反卷积-Transposed-Convolution"><a href="#反卷积-Transposed-Convolution" class="headerlink" title="反卷积(Transposed Convolution)"></a>反卷积(Transposed Convolution)</h5><p>上采样有3种常见的方法：双线性插值(bilinear)，反卷积(Transposed Convolution)，反池化(Unpooling)，我们这里只讨论反卷积。这里指的反卷积，也叫转置卷积，它并不是正向卷积的完全逆过程，用一句话来解释：反卷积是一种特殊的正向卷积，先按照一定的比例通过补  来扩大输入图像的尺寸，接着旋转卷积核，再进行正向卷积。</p>
+<p>卷积计算公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">o&#x3D;\frac&#123;i+2p-k&#125;&#123;s&#125; +1</span><br></pre></td></tr></table></figure><br>i:输入图像大小<br>p:padding<br>s:strides 步长<br>k:kernel大小</p>
+<p><a href="https://imgchr.com/i/NJcDuq" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NJcDuq.md.png" alt="NJcDuq.md.png"></a></p>
+<p>反卷积输出图片的尺寸会大于输入图片的尺寸，通过增加padding来实现这一操作，上图展示的是一个strides(步长)为1的反卷积。下面看一个strides不为1的反卷积</p>
+<p><a href="https://imgchr.com/i/NJcRC4" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NJcRC4.md.png" alt="NJcRC4.md.png"></a></p>
+<p>上图中的反卷积的stride为2，通过间隔插入padding来实现的。同样，可以根据反卷积的o、s、k、po、s、k、po、s、k、p参数来计算反卷积的输出iii，也就是卷积的输入。公式如下：i=(o−1)∗s+k−2∗pi=(o-1)*s+k-2*p, 其实就是根据上式推导出来的。</p>
+<p>note: 反卷积只能恢复尺寸，不能恢复数值</p>
+<p>这里图像的反卷积与下图的full卷积原理是一样的，使用了这一种反卷积手段使得图像可以变大，FCN作者使用的方法是这里所说反卷积的一种变体，这样就可以获得相应的像素值，图像可以实现end to end。</p>
+<p>（feature map值与权重不同，生成的上采样的二值区域也是不一样的。）</p>
+<p><a href="https://imgchr.com/i/NJyCaF" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NJyCaF.md.png" alt="NJyCaF.md.png"></a></p>
+<p>输入：每个像素值等于filter的权重  <br>输出：步长为stride，截取的宽度为pad。</p>
+<h4 id="跳级结构"><a href="#跳级结构" class="headerlink" title="跳级结构"></a>跳级结构</h4><p>下半部分，使用逐数据相加（黄色×2），把三个不同深度的预测结果进行融合：较浅的结果更为精细，较深的结果更为鲁棒。</p>
+<p>在融合之前，使用裁剪层（灰色×2）统一两者大小。最后裁剪成和输入相同尺寸输出。</p>
+<h4 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h4><ol>
+<li>以经典的分类网络为初始化。最后两级是全连接，参数弃去不用。</li>
+<li>从特征小图（16*16*4096）预测分割小图（16*16*21），之后直接升采样为大图。<br>反卷积（橙色）的步长为32，这个网络称为FCN-32s。<br>这一阶段使用单GPU训练约需3天。</li>
+</ol>
+<p><a href="https://imgchr.com/i/NJRFjs" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NJRFjs.md.png" alt="NJRFjs.md.png"></a></p>
+<ol>
+<li>升采样分为两次完成（橙色×2）。<br>在第二次升采样前，把第4个pooling层（绿色）的预测结果（蓝色）融合进来。使用跳级结构提升精确性。<br>第二次反卷积步长为16，这个网络称为FCN-16s。<br>这一阶段使用单GPU训练约需1天。</li>
+</ol>
+<p><a href="https://imgchr.com/i/NJWExH" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NJWExH.md.png" alt="NJWExH.md.png"></a></p>
+<ol>
+<li>升采样分为三次完成（橙色×3）。<br>进一步融合了第3个pooling层的预测结果。<br>第三次反卷积步长为8，记为FCN-8s。<br>这一阶段使用单GPU训练约需1天。</li>
+</ol>
+<p><a href="https://imgchr.com/i/NJWYss" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NJWYss.md.png" alt="NJWYss.md.png"></a></p>
+<p>较浅层的预测结果包含了更多细节信息。比较2,3,4阶段可以看出，跳级结构利用浅层信息辅助逐步升采样，有更精细的结果</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>总体来说，本文的逻辑如下：</p>
+<ul>
+<li>想要精确预测每个像素的分割结果</li>
+<li>必须经历从大到小，再从小到大的两个过程</li>
+<li>在升采样过程中，分阶段增大比一步到位效果更好</li>
+<li>在升采样的每个阶段，使用降采样对应层的特征进行辅助</li>
+</ul>
+<h2 id="Mask-R-CNN"><a href="#Mask-R-CNN" class="headerlink" title="Mask R-CNN"></a>Mask R-CNN</h2><p>reference：<a href="https://blog.csdn.net/wangdongwei0/article/details/83110305" target="_blank" rel="noopener">https://blog.csdn.net/wangdongwei0/article/details/83110305</a></p>
+<p>reference：<a href="https://blog.csdn.net/WZZ18191171661/article/details/79453780" target="_blank" rel="noopener">https://blog.csdn.net/WZZ18191171661/article/details/79453780</a></p>
+<p>Mask R-CNN是一个实例分割（Instance segmentation）算法，可以用来做“目标检测”、“目标实例分割”、“目标关键点检测”。</p>
+<p><a href="https://imgchr.com/i/NJf8k6" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NJf8k6.md.png" alt="NJf8k6.md.png"></a></p>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><ul>
+<li>Mask RCNN可以看做是一个通用实例分割架构。</li>
+<li>Mask RCNN以Faster RCNN原型，增加了一个分支用于分割任务。</li>
+<li>Mask RCNN比Faster RCNN速度慢一些，达到了5fps。</li>
+<li>可用于人的姿态估计等其他任务；</li>
+</ul>
+<p>高速和高准确率：作者选用了经典的目标检测算法Faster-rcnn和经典的语义分割算法FCN。Faster-rcnn可以既快又准的完成目标检测的功能；FCN可以精准的完成语义分割的功能，这两个算法都是对应领域中的经典之作。Mask R-CNN比Faster-rcnn复杂，但是最终仍然可以达到5fps的速度，这和原始的Faster-rcnn的速度相当。由于发现了ROI Pooling中所存在的像素偏差问题，提出了对应的ROIAlign策略，加上FCN精准的像素MASK，使得其可以获得高准确率。</p>
+<p>简单直观：整个Mask R-CNN算法的思路很简单，就是在原始Faster-rcnn算法的基础上面增加了FCN来产生对应的MASK分支。即Faster-rcnn + FCN，更细致的是 RPN + ROIAlign + Fast-rcnn + FCN。</p>
+<p>易于使用：整个Mask R-CNN算法非常的灵活，可以用来完成多种任务，包括目标分类、目标检测、语义分割、实例分割、人体姿态识别等多个任务，这将其易于使用的特点展现的淋漓尽致。我很少见到有哪个算法有这么好的扩展性和易用性，值得我们学习和借鉴。除此之外，我们可以更换不同的backbone architecture和Head Architecture来获得不同性能的结果。</p>
+<h3 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li>实例分割不仅要正确的找到图像中的objects，还要对其精确的分割。所以Instance Segmentation可以看做object dection和semantic segmentation的结合。</li>
+<li>Mask RCNN是Faster RCNN的扩展，对于Faster RCNN的每个Proposal Box都要使用FCN进行语义分割，分割任务与定位、分类任务是同时进行的。</li>
+<li>引入了RoI Align代替Faster RCNN中的RoI Pooling。因为RoI Pooling并不是按照像素一一对齐的（pixel-to-pixel alignment），也许这对bbox的影响不是很大，但对于mask的精度却有很大影响。使用RoI Align后mask的精度从10%显著提高到50%，第3节将会仔细说明。</li>
+<li>引入语义分割分支，实现了mask和class预测的关系的解耦，mask分支只做语义分割，类型预测的任务交给另一个分支。这与原本的FCN网络是不同的，原始的FCN在预测mask时还用同时预测mask所属的种类。</li>
+<li>没有使用什么花哨的方法，Mask RCNN就超过了当时所有的state-of-the-art模型。</li>
+<li>使用8-GPU的服务器训练了两天。</li>
+</ul>
+<h3 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h3><h4 id="Mask-R-CNN算法步骤"><a href="#Mask-R-CNN算法步骤" class="headerlink" title="Mask R-CNN算法步骤"></a>Mask R-CNN算法步骤</h4><ul>
+<li>首先，输入一幅你想处理的图片，然后进行对应的预处理操作，或者预处理后的图片；</li>
+<li>然后，将其输入到一个预训练好的神经网络中（ResNeXt等）获得对应的feature map；</li>
+<li>接着，对这个feature map中的每一点设定预定个的ROI，从而获得多个候选ROI；</li>
+<li>接着，将这些候选的ROI送入RPN网络进行二值分类（前景或背景）和BB回归，过滤掉一部分候选的ROI；</li>
+<li>接着，对这些剩下的ROI进行ROIAlign操作（即先将原图和feature map的pixel对应起来，然后将feature map和固定的feature对应起来）；</li>
+<li>最后，对这些ROI进行分类（N类别分类）、BB回归和MASK生成（在每一个ROI里面进行FCN操作）。</li>
+</ul>
+<h4 id="Mask-R-CNN架构分解"><a href="#Mask-R-CNN架构分解" class="headerlink" title="Mask R-CNN架构分解"></a>Mask R-CNN架构分解</h4><p><a href="https://imgchr.com/i/NY6Oqx" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NY6Oqx.md.png" alt="NY6Oqx.md.png"></a></p>
+<h5 id="Faster-rcnn"><a href="#Faster-rcnn" class="headerlink" title="Faster-rcnn"></a>Faster-rcnn</h5><h5 id="FCN"><a href="#FCN" class="headerlink" title="FCN"></a>FCN</h5><p>FCN算法是一个经典的语义分割算法，可以对图片中的目标进行准确的分割。其总体架构如上图所示，它是一个端到端的网络，主要的模快包括卷积和去卷积，即先对图像进行卷积和池化，使其feature map的大小不断减小；然后进行反卷积操作，即进行插值操作，不断的增大其feature map，最后对每一个像素值进行分类。从而实现对输入图像的准确分割。</p>
+<p><a href="https://imgchr.com/i/NY2Krn" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NY2Krn.md.png" alt="NY2Krn.md.png"></a></p>
+<h5 id="ROIPooling和ROIAlign的分析与比较"><a href="#ROIPooling和ROIAlign的分析与比较" class="headerlink" title="ROIPooling和ROIAlign的分析与比较"></a>ROIPooling和ROIAlign的分析与比较</h5><p><a href="https://imgchr.com/i/NYRUfS" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NYRUfS.md.png" alt="NYRUfS.md.png"></a></p>
+<p>ROI Pooling和ROIAlign最大的区别是：前者使用了两次量化操作，而后者并没有采用量化操作，使用了线性插值算法，具体的解释如下所示。</p>
+<p>ROI Pooling技术：<br><a href="https://imgchr.com/i/NYRmFK" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NYRmFK.md.png" alt="NYRmFK.md.png"></a></p>
+<p>如图所示，为了得到固定大小（7X7）的feature map，我们需要做两次量化操作：<br>1）图像坐标 — feature map坐标，<br>2）feature map坐标 — ROI feature坐标。</p>
+<p>第一次量化误差：\<br>如图我们输入的是一张800x800的图像，在图像中有两个目标（猫和狗），狗的BB大小为665x665，经过VGG16网络后，我们可以获得对应的feature map，如果我们对卷积层进行Padding操作，我们的图片经过卷积层后保持原来的大小，但是由于池化层的存在，我们最终获得feature map 会比原图缩小一定的比例，这和Pooling层的个数和大小有关。在该VGG16中，我们使用了5个池化操作，每个池化操作都是2Pooling，因此我们最终获得feature map的大小为800/32 x 800/32 = 25x25（是整数），但是将狗的BB对应到feature map上面，我们得到的结果是665/32 x 665/32 = 20.78 x 20.78，结果是浮点数，含有小数，但是我们的像素值可没有小数，那么作者就对其进行了量化操作（即取整操作），即其结果变为20 x 20，在这里引入了第一次的量化误差</p>
+<p>第二次量化误差：\<br>然而我们的feature map中有不同大小的ROI，但是我们后面的网络却要求我们有固定的输入，因此，我们需要将不同大小的ROI转化为固定的ROI feature，在这里使用的是7x7的ROI feature，那么我们需要将20 x 20的ROI映射成7 x 7的ROI feature，其结果是 20 /7 x 20/7 = 2.86 x 2.86，同样是浮点数，含有小数点，我们采取同样的操作对其进行取整吧，在这里引入了第二次量化误差。其实，这里引入的误差会导致图像中的像素和特征中的像素的偏差，即将feature空间的ROI对应到原图上面会出现很大的偏差。</p>
+<p><a href="https://imgchr.com/i/NYWens" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NYWens.md.png" alt="NYWens.md.png"></a></p>
+<p>如图10所示，为了得到为了得到固定大小（7X7）的feature map，ROIAlign技术并没有使用量化操作，即我们不想引入量化误差，比如665 / 32 = 20.78，我们就用20.78，不用什么20来替代它，比如20.78 / 7 = 2.97，我们就用2.97，而不用2来代替它。这就是ROIAlign的初衷。那么我们如何处理这些浮点数呢，我们的解决思路是使用“双线性插值”算法。双线性插值是一种比较好的图像缩放算法，它充分的利用了原图中虚拟点（比如20.56这个浮点数，像素位置都是整数值，没有浮点值）四周的四个真实存在的像素值来共同决定目标图中的一个像素值，即可以将20.56这个虚拟的位置点对应的像素值估计出来。</p>
+<p><a href="https://imgchr.com/i/NYh1OJ" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/22/NYh1OJ.md.png" alt="NYh1OJ.md.png"></a></p>
+<p>蓝色的虚线框表示卷积后获得的feature map，黑色实线框表示ROI feature，最后需要输出的大小是2x2，那么我们就利用双线性插值来估计这些蓝点（虚拟坐标点，又称双线性插值的网格点）处所对应的像素值，最后得到相应的输出。这些蓝点是2x2Cell中的随机采样的普通点，作者指出，这些采样点的个数和位置不会对性能产生很大的影响，你也可以用其它的方法获得。然后在每一个橘红色的区域里面进行max pooling或者average pooling操作，获得最终2x2的输出结果。我们的整个过程中没有用到量化操作，没有引入误差，即原图中的像素和feature map中的像素是完全对齐的，没有偏差，这不仅会提高检测的精度，同时也会有利于实例分割。</p>
+<h3 id="Loss-计算"><a href="#Loss-计算" class="headerlink" title="Loss 计算"></a>Loss 计算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L&#x3D;L_&#123;cls&#125;+L_&#123;box&#125;+L_&#123;mask&#125;</span><br></pre></td></tr></table></figure>
+<p>其中<code>$L_{cls},L_{box$</code>和在Faster r-cnn中定义的相同。</p>
+<p>对于每一个ROI，mask分支有Km*m维度的输出，其对K个大小为m*m的mask进行编码，每一个mask有K个类别。我们使用了per-pixel sigmoid，并且将Lmask定义为the average binary cross-entropy loss。对应一个属于GT中的第k类的ROI，Lmask仅仅在第k个mask上面有定义（其它的k-1个mask输出对整个Loss没有贡献）。我们定义的Lmask允许网络为每一类生成一个mask，而不用和其它类进行竞争；我们依赖于分类分支所预测的类别标签来选择输出的mask。这样将分类和mask生成分解开来。这与利用FCN进行语义分割的有所不同，它通常使用一个per-pixel sigmoid和一个multinomial cross-entropy loss，在这种情况下mask之间存在竞争关系；而由于我们使用了一个per-pixel sigmoid 和一个binary loss，不同的mask之间不存在竞争关系。经验表明，这可以提高实例分割的效果。</p>
+<h3 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>分析了ROI Pool的不足，提升了ROIAlign，提升了检测和实例分割的效果；</li>
+<li>将实例分割分解为分类和mask生成两个分支，依赖于分类分支所预测的类别标签来选择输出对应的mask。同时利用Binary Loss代替Multinomial Loss，消除了不同类别的mask之间的竞争，生成了准确的二值mask；</li>
+<li>并行进行分类和mask生成任务，对模型进行了加速。</li>
+</ul>
+<h2 id="DeepLab"><a href="#DeepLab" class="headerlink" title="DeepLab"></a>DeepLab</h2><p>reference：<a href="https://blog.csdn.net/Dlyldxwl/article/details/81148810" target="_blank" rel="noopener">https://blog.csdn.net/Dlyldxwl/article/details/81148810</a></p>
+<p>在传统的语义分割问题上，存在的三个挑战：</p>
+<ul>
+<li>传统分类CNN中连续的池化何降采样导致空间分辨率下降。（解决：去掉最后几层的降采样和最大池化，使用上采样滤波器，得到采样率更高的特征）</li>
+<li>对象对尺度检测问题，使用重新调节尺度并聚合特征图，但是计算量较大。（解决：对特征层重采样，得到多尺度的图像文本信息，使用多个并行ACNN进行多尺度采样，成为ASPP）</li>
+<li>以物体为中心的分类，需要保证空间转换不变性。（解决：跳跃层结构，从多个网络层中抽取高层次特征进行预测；使用全连接条件随机场进行边界预测优化）</li>
+</ul>
+<p>Deeplab系列针对的是语义分割任务。对于语义分割任务要求：</p>
+<ul>
+<li>语义分割是对图像做密集的分割任务，分割每个像素到指定的类别上；</li>
+<li>将图像分割成几个有意义的目标；</li>
+<li>给对象分配指定的类别标签。</li>
+</ul>
+<h3 id="Deeplab-v1"><a href="#Deeplab-v1" class="headerlink" title="Deeplab v1"></a>Deeplab v1</h3><p>由于语义分割是像素级别的分类，高度抽象的空间特征对low-level并不适用，因此必须要考虑feature map 的尺寸和空间不变性。</p>
+<p>feature map变小是因为stride的存在，stride&gt;1是为了增加感受野的，如果stride=1，要保证相同的感受野，则必须是卷积核大小变大，因此，论文使用hole算法来增加核大小进而达到相同的感受野，也就是空洞卷积。</p>
+<p>图像输入CNN后是一个倍逐步抽象的过程，原来的位置信息会随着深度而减少甚至消失。条件随机场在传统图像处理上做一个平滑，也就是说在决定一个位置的像素值时，能够考虑周围邻居的像素值，抹杀一些噪音。</p>
+<p>具体的操作为：移除原网络最后两个池化层，使用rate=2的空洞卷积采样。标准的卷积只能获取原图1/4的内容，而新的带孔的卷积能够在全图上获取信息。</p>
+<h4 id="Astrous-conv"><a href="#Astrous-conv" class="headerlink" title="Astrous conv"></a>Astrous conv</h4><p>对使用了s=2后的lower resolution feature map再进行标准的卷积的效果和在原来的feature map上使用rate=2的空洞卷积的效果是一样的。</p>
+<p>空洞卷积：<br><a href="https://imgchr.com/i/NaFKbD" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/23/NaFKbD.md.png" alt="NaFKbD.md.png"></a></p>
+<h4 id="ASPP结构"><a href="#ASPP结构" class="headerlink" title="ASPP结构"></a>ASPP结构</h4><p>使用多尺度进行空洞卷积，在经过1*1的卷积之后连接起来。多尺度特征提取，得到全局和局部特征</p>
+<p><a href="https://imgchr.com/i/NaFrPs" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/23/NaFrPs.md.png" alt="NaFrPs.md.png"></a></p>
+<p>DeeplabV1是在VGG16的基础上做了修改：</p>
+<ul>
+<li>VGG16的全连接层转为卷积；</li>
+<li>最后两个池化层去掉，后续使用空洞卷积。</li>
+</ul>
+<h3 id="Deeplab-v2"><a href="#Deeplab-v2" class="headerlink" title="Deeplab v2"></a>Deeplab v2</h3><p>Deeplabv2是在v1上进行改进的：</p>
+<ul>
+<li>使用多尺度获得更好的分割效果（使用ASPP）</li>
+<li>基础层由VGG16转为ResNet</li>
+<li>使用不同的学习策略</li>
+<li>Deeplab V1和V2的优点：</li>
+<li>速度上：使用空洞卷积的Dense DCNN速度比全连接层快；</li>
+<li>准确度高</li>
+</ul>
+<h3 id="Deeplab-v3"><a href="#Deeplab-v3" class="headerlink" title="Deeplab v3"></a>Deeplab v3</h3><p>paper： Rethinking Atrous Convolution for Semantic Image Segmentation</p>
+<p>创新点</p>
+<ol>
+<li>改进了ASPP模块，一个11的卷积和3个33的空洞卷积，每个卷积核有256个且都有BN层，包含图像及特征（全局平均池化）。</li>
+<li>参考了图森组的Understanding Convolution for Semantic Segmentation中HDC的思想。其实就是对应纵横两种结构。</li>
+<li>提出了更通用的框架，适用于任何网络；</li>
+<li>复制了resnet最后的block，并级联起来</li>
+<li>在ASPP中使用BN层</li>
+<li>没有随机向量场</li>
+</ol>
+<p>backbone还是resnet 101.</p>
+<p>全局特征或上下文之间的相互作用有助于做语义特征，现有四种不同类型利用上下文信息做语义分割的全卷积神经网络（几种常见的捕获multi-scale context的方法）：</p>
+<ol>
+<li><strong>图像金字塔：</strong>通常使用共享权重的模型，适用于多尺寸的输入。小尺寸输入响应控制语义，大尺寸的输入响应控制细节。通过拉普拉斯金字塔对输入变化成多尺度，传入DCNN，融合输出。缺点：因为GPU存储器的限制，对于更大更深的模型不方便扩展。（输入图像进行尺度变换得到不同分辨率input，然后将所有尺度的图像放入CNN中得到不同尺度的分割结果，最后将不同分辨率的分割结果融合得到原始分辨率的分割结果，类似的方法为DeepMedic；）</li>
+<li><strong>Encoder-Decoder：</strong>编码器的高层次的特征容易捕获更长的距离信息，在解码器阶段使用编码器阶段的信息帮助恢复目标的细节和空间维度。FCN和UNet等结构。</li>
+<li><strong>上下文模块：</strong>包含了额外的模块用于级联编码长距离的上下文。例如空洞卷积。（串联结构）</li>
+<li><strong>空间金字塔池化：</strong>采用空间金字塔池化可以捕获多个层次的上下文。（本文提出的Deeplab v3结构。）</li>
+</ol>
+<p><a href="https://imgchr.com/i/NaAA6x" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/23/NaAA6x.md.png" alt="NaAA6x.md.png"></a></p>
+<h4 id="ASPP的改进"><a href="#ASPP的改进" class="headerlink" title="ASPP的改进"></a>ASPP的改进</h4><p>改进后的aspp长下图那个样子，多了个1*1的conv和global avg pool。</p>
+<p><a href="https://imgchr.com/i/NaARN4" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/23/NaARN4.md.png" alt="NaARN4.md.png"></a></p>
+<h4 id="“串联”结构"><a href="#“串联”结构" class="headerlink" title="“串联”结构"></a>“串联”结构</h4><p>如下图所示，复制conv4的结构3次，后面的每个block都有一个基准dilation Rate，在每一个block里面参考HDC的思想，又设置了[1,2,1]的rate，所以每个conv的rate = Rate*rate.在论文4.2的Multi-grid部分详细进行了解释对比。</p>
+<p><a href="https://imgchr.com/i/NaA43R" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/23/NaA43R.md.png" alt="NaA43R.md.png"></a></p>
+<p>两种方法的结构合并并不会带来提升，相比较来说，aspp的纵式结构要好一点。所以deeplab v3一般也是指aspp的结构。</p>
+<h1 id="人体行为识别"><a href="#人体行为识别" class="headerlink" title="人体行为识别"></a>人体行为识别</h1><h2 id="3D-CNN"><a href="#3D-CNN" class="headerlink" title="3D CNN"></a>3D CNN</h2><p>reference：<a href="https://zhuanlan.zhihu.com/p/47490523" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/47490523</a></p>
+<h3 id="摘要-1"><a href="#摘要-1" class="headerlink" title="摘要"></a>摘要</h3><p>当前很多人体行为识别分类器都是基于从原始图像上手工提取的特征，本文提出的3D CNN能够直接从原始输入中提取特征，通过执行3D卷积在监控视频中从时间和空间维度提取特征，将高级功能模型规范化，并结合各种不同模型的输出，进一步提高3D CNN的性能。在机场的监控视频中，该方法相比于传统的方法，取得了卓越的性能。</p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><ul>
+<li>现实的环境的监控视频背景杂乱、遮挡等原因，在识别之前会对视频中的某些情况作出某些假设（假设在现实环境中很少存在），然后遵循两步原则：</li>
+</ul>
+<ol>
+<li>计算原始视频帧的特征；</li>
+<li>基于获得的特征学习分类器；</li>
+</ol>
+<ul>
+<li>然而在实际场景中，很少知道哪些特征对手头任务很重要，因为特征选择高度依赖问题。特别是对于人类动作识别，不同的动作类别在其外观和运动模式方面可能显得截然不同。</li>
+<li>深度学习模型是一类可以通过从低级特征构建高级特征来学习特征层次结构的机器。这种学习机可以使用有监督或无监督的方法进行训练。</li>
+<li>CNN主要用于2D图像，本文探讨将CNN用于视频中人体动作的识别，一种容易想到的方法是将视频的每一帧视为静止图像，并用CNN来识别单个帧的级别动作，但这种方法没有考虑多个连续帧的编码运动信息。为了有效的结合视频中的运动信息，文章提出可以在CNN卷积层中执行3D卷积，以便捕获沿空间和时间维度的辨别特征。3D CNN架构可以从相邻的视频帧生成多个信息通道，并在每个通道中分别执行卷积和下采样，通过组合来自视频通道的信息获得最终特征表示。为了进一步提升3D CNN模型的性能，我们建议增加模型，辅助输出计算为高级运动特征，并集成各种不同架构的输出进行预测。</li>
+</ul>
+<h4 id="贡献"><a href="#贡献" class="headerlink" title="贡献"></a>贡献</h4><ul>
+<li>本文应用3D卷积运算从视频数据中提取空间和时间特征以进行动作识别。这些3D特征提取器在空间和时间维度上操作，从而捕获视频流中的运动信息；</li>
+<li>开发了基于3D卷积特征提取的3D卷积神经网络架构（CNN），该CNN架构从相邻视频帧生成多个信息通道，并在每个通道中分别执行卷积和下采样。通过组合来自所有通道的信息获得最终的特征表示；</li>
+<li>建议通过增加具有高级运动特征的输出来规范3D CNN模型；</li>
+<li>建议通过组合各种不同3D CNN架构的输出来提高模型的性能。</li>
+</ul>
+<h4 id="3D卷积神经网络"><a href="#3D卷积神经网络" class="headerlink" title="3D卷积神经网络"></a>3D卷积神经网络</h4><p>在二维CNN中，卷积应用于2D特征图，仅从空间维度计算特征。当利用视频数据分析问题的时候，我们期望捕获在多个连续帧编码的运动信息。为此，提出在CNN的卷积进行3D卷积，以计算空间和时间维度特征， 3D卷积是通过堆叠多个连续的帧组成一个立方体，然后在立方体中运用3D卷积核。通过这种结构，<strong>卷积层中的特征图都会与上一层中的多个相邻帧相连</strong>，从而捕获运动信息。如下图所示，一个feature map的某一位置的值是通过卷积上一层的三个连续的帧的同一位置的局部感受野得到的。</p>
+<p><a href="https://imgchr.com/i/NtKOPg" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/23/NtKOPg.md.png" alt="NtKOPg.md.png"></a></p>
+<ul>
+<li>要注意的是，3D卷积核只能从cube中提取一种类型特征，因为在整个卷积的过程中卷积核的权值都是一样的的（共享权值），都是同一种卷积核，上图中同一颜色的连线表示相同的权值。因此我们可以采用多种卷积核来提取多种特征。</li>
+<li>对于CNNs，有一个通用的设计规则就是：在后面的层（离输出层近的）特征map的个数应该增加，这样就可以从低级的feature map组合产生更多类型的特征。</li>
+</ul>
+<h4 id="3D-CNN架构"><a href="#3D-CNN架构" class="headerlink" title="3D CNN架构"></a>3D CNN架构</h4><p>基于上述的3D卷积，可以设计出各种CNN架构。在上下文中，我们描述了为了描述了为TRECVID数据集中的人为动作识别开发的3D CNN架构，如图所示：</p>
+<p><a href="https://imgchr.com/i/NULOhD" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/23/NULOhD.md.png" alt="NULOhD.md.png"></a></p>
+<ul>
+<li>文中的3D CNN架构包含一个硬连线hardwired层、3个卷积层、2个下采样层和一个全连接层。每个3D卷积核卷积的立方体是连续7帧，每帧patch大小是60x40；</li>
+<li>在第一层，我们应用了一个固定的hardwired的核去对原始的帧进行处理，产生多个通道的信息，然后对多个通道分别处理。最后再将所有通道的信息组合起来得到最终的特征描述。这个hardwired层实际上是编码了我们对特征的先验知识，这比随机初始化性能要好。</li>
+</ul>
+<p><a href="https://imgchr.com/i/NUjRtf" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/23/NUjRtf.md.png" alt="NUjRtf.md.png"></a></p>
+<ul>
+<li>每帧提取五个通道的信息，分别是：灰度、x和y方向的梯度，x和y方向的光流。其中，前面三个都可以每帧都计算。然后水平和垂直方向的光流场需要两个连续帧才确定。所以是7x3 + (7-1)x2=33个特征maps。</li>
+<li>然后我们用一个7x7x3的3D卷积核（<strong>7x7在空间，3是时间维</strong>）在五个通道的每一个通道分别进行卷积。为了增加feature map个数（实际上就是提取不同的特征），我们在每一个位置都采用两个不同的卷积核，这样在C2层的两个特征maps组中，每组都包含23个特征maps。23=(7-3+1)x3+(6-3+1)x2，前面那个是：七个连续帧，其灰度、x和y方向的梯度这三个通道都分别有7帧，然后水平和垂直方向的光流场都只有6帧。54x34是(60-7+1)x(40-7+1)。</li>
+<li>在紧接着的下采样层S3层max pooling，我们在C2层的特征maps中用2x2窗口进行下采样，这样就会得到相同数目但是空间分辨率降低的特征maps。下采样后，就是27x17=(54/2)*(34/2)。</li>
+<li>C4是在5个通道中分别采用7x6x3的3D卷积核。为了增加特征maps个数，我们在每个位置都采用3个不同的卷积核，这样就可以得到6组不同的特征maps，每组有13个特征maps。13=((7-3+1)-3+1)x3+((6-3+1)-3+1)x2，前面那个是：七个连续帧，其灰度、x和y方向的梯度这三个通道都分别有7帧，然后水平和垂直方向的光流场都只有6帧。21x12是(27-7+1)x(17-6+1)。</li>
+<li>S5层用的是3x3的下采样窗口，所以得到7x4。所以本文中，空间维度上卷积后的尺寸变化可以通过下图很直观的表现出来:</li>
+</ul>
+<p><a href="https://imgchr.com/i/NaSoGV" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/23/NaSoGV.md.png" alt="NaSoGV.md.png"></a></p>
+<ul>
+<li>到这个阶段，时间维上帧的个数已经很小了，在这一层，我们只在空间维度上面卷积，这时候我们使用的核是7x4，然后输出的特征maps就被减小到1x1的大小。而C6层就包含有128个feature map，每个特征map与S5层中所有78（13x6）个特征maps全连接，这样每个特征map就是1x1，也就是一个值了，<strong>而这个就是最终的特征向量了，共128维</strong>。</li>
+<li>经过多层的卷积和下采样后，每连续7帧的输入图像都被转化为一个128维的特征向量，这个特征向量捕捉了输入帧的运动信息。输出层的节点数与行为的类型数目一致，而且每个节点与C6中这128个节点是全连接的。如下图：</li>
+</ul>
+<p><a href="https://imgchr.com/i/Nap6F1" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/23/Nap6F1.md.png" alt="Nap6F1.md.png"></a></p>
+<ul>
+<li>在这里，我们采用一个线性分类器来对这128维的特征向量进行分类，实现行为识别。</li>
+<li>模型中所有可训练的参数都是随机初始化的，然后通过在线BP算法进行训练。</li>
+</ul>
+<h4 id="Model-Regularization（模型规范化）"><a href="#Model-Regularization（模型规范化）" class="headerlink" title="Model Regularization（模型规范化）"></a>Model Regularization（模型规范化）</h4><ul>
+<li>3D CNN模型的输入被限制为一个少的连续视频帧（论文中取的是7帧），因为随着输入窗口大小的增加，模型需要训练的参数也会增加。但是呢，很多人的行为是跨越很多帧的。</li>
+<li>因此，在3D CNN模型中，有必要捕捉这种高层的运动信息。为了达到这个目的，我们用大量的帧来计算运动特征，然后把这些运动特征作为辅助输出去规则化3D CNN模型。</li>
+<li>对于每一个需要训练的行为，我们提取其长时间的行为信息，作为其高级行为特征。这个运动信息因为时间够长，所以要比CNN的输入帧的立方体包含的信息要丰富很多。然后我们就迫使CNN学习一个非常接近这个特征的特征向量。这可以通过在CNN的最后一个隐层再连接一系列的辅助输出节点，然后训练过程中，使提取的特征更好的逼近这个计算好的高层的行为运动特征向量。如下图所示：</li>
+</ul>
+<p><a href="https://imgchr.com/i/Na99kn" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/23/Na99kn.md.png" alt="Na99kn.md.png"></a></p>
+<p>高级行为辅助特征的提取过程是先在原始的灰度图像上计算稠密sift (Scale Invariant Feature Transform)描述子，然后通过这些sift描述子和运动边缘历史图像（MEHI）组合构造bag-of-words特征作为高级行为辅助特征。如下图：</p>
+<p><a href="https://imgchr.com/i/Na911K" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/23/Na911K.md.png" alt="Na911K.md.png"></a></p>
+<ul>
+<li>因为灰度图保留了外观信息，运动边缘历史图像（MEHI）只关心形状和运动模式，所以可以提取这两个互补的信息作为两个连续帧的局部特征bag。MEHI 的计算见上图右，先简单的计算两帧间的差分，这样就可以保留运动信息，然后对其执行一次Canny边缘检测，这样可以使得观测图像更加清楚简洁。最终的运动边缘图像就是将历史的这些图像乘以一个遗忘因子再累加起来得到。</li>
+</ul>
+<h4 id="Model-Combination-模型组合"><a href="#Model-Combination-模型组合" class="headerlink" title="Model Combination (模型组合)"></a>Model Combination (模型组合)</h4><ul>
+<li>不同的3D CNN模型在不同的应用环境下性能不一样，一种自适应的方法就是构造多个不同模型，然后对一个特定的输入，每个模型都做出预测，然后组合这些模型的预测得到最后的决策。</li>
+<li>本文中，我们构造多个不同的3D CNN模型，因此它可以从输入捕捉潜在的互补信息，然后在预测阶段，每个模型都针对一个输入得到对应的输出，然后再组合这些输出得到最终的结果。</li>
+</ul>
+<h2 id="双流法-Two-Stream"><a href="#双流法-Two-Stream" class="headerlink" title="双流法 Two-Stream"></a>双流法 Two-Stream</h2><p>《Two-Stream Convolutional Networks for Action Recognition in Videos》</p>
+<p>双流法，顾名思义就好像是两条小溪流各自流动最后汇聚到了一块；其中一条小溪流的名称为“RGB”图信息，可以是3通道的信息，也可以是 RGB-D 的灰度图信息； 而另一条小溪流的名称是“光流”图的信息，一般的光流图为2通道的信息，分别为在X轴上的信息变化与Y轴上的信息变化。【光流是通过对两张图进行梯度计算得到，抽象层面可以理解成是其关键点的像素点信息移动的信息】</p>
+<p><a href="https://imgchr.com/i/NddaD0" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/24/NddaD0.md.png" alt="NddaD0.md.png"></a></p>
+<p>如图所示，其实做法非常的简单，相当于训练两个CNN的分类器。一个是专门对于 RGB 图的， 一个专门对于光流图的， 然后将两者的结果进行一个 fushion 的过程。</p>
+<p>RGB图的选择，是对于所给的一段视频随机挑选出视频中的任意一帧；而光流图是选择视频中的任意一帧的时间然后及其后面的N帧叠合成一个光流栈进入训练。</p>
+<p>[这种光流的训练方式是论文作者认为，这样子的光流叠加可以获得它的运动信息流，但是实际上光流图并不是以motion的信息来得到结果]</p>
+<p>Spatial stream ConvNet 网络对视频的的单个帧进行操作，从静止的图片中进行特征的提取。</p>
+<p>Optical ﬂow ConvNets 的输入是几个连续帧之间堆叠光流位移场，该输入描述了视频帧之间的运动信息。</p>
+<p>作者在文章中也介绍了基于光流输入的几种变种，如下图，(a),(b)表示一对连续的视频帧，在移动的手周围用青色矩形勾勒出区域。(c).表示在轮廓区域密集的光流。(d).位移矢量场的水平分量dx。(e).表示位移矢量场的垂直分量dy。</p>
+<p><a href="https://imgchr.com/i/Nd0RAK" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/24/Nd0RAK.md.png" alt="Nd0RAK.md.png"></a></p>
+<p>现在介绍一下<strong>光流堆叠(Optical ﬂow stacking)</strong>，密集光学流可以看作成对连续帧t和t + 1之间的一组位移矢量场dt。用dt(u,v)表示帧t中点(u，v)的位移矢量，表示它将点移动到下一帧t+1中的相应点。如下图左边图所示，矢量场的水平和垂直分量dt(x)和dt(y)可以看作图像通道。为了表示一系列帧之间的运动，将L个连续帧的流通道dt(xy )叠加在一起，形成总共2L个输入通道。图4为通过光流堆叠卷积网络的输入。</p>
+<p><strong>轨迹堆叠(Trajectory stacking)</strong>，沿着运动轨迹采样的光流，而光流堆叠在几个帧的相同位置采样的光学流动。</p>
+<p>文中提到了双向光流(Bi-directional optical ﬂow),光流堆叠和轨迹堆叠都是处理前向光流，即帧t的位移场dt定义为其在下一帧t + 1中的像素的位置，而双向光流指的是通过在帧τ-π/ L和τ之间堆叠L / 2前向流并且在帧τ-L / 2和τ之间堆叠L / 2后向流来构造输入。</p>
+<p>最后是<strong>Mean ﬂow subtraction</strong>，对网络输入进行零中心化可以使模型更好地纠正非线性。对于一对帧，它们之间的光流动可以由特定位移支配，比如相机的移动，在本论文中作者从每个位移场中减去其平均向量。在这部分中，作者也阐述了Temporal ConvNet架构与先前表示的关系，表明了emporal network特征可以概括了手工设计特征。</p>
+<p><a href="https://imgchr.com/i/NdrVX9" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/06/24/NdrVX9.md.png" alt="NdrVX9.md.png"></a></p>
+<p>第四部分为多任务学习(Multi-tasklearning)，这主要针对与temporal ConvNet，由于现有的视频行为数据集相对是少的。训练在UCF-101和HMDB-51数据集上。为了防止过拟合，考虑将多个数据集进行合并成一个，由于不同数据集类别上由交叉，所以一种做法是增加不在原始图像类别中的图片，然而这需要手动进行。而组合多个数据集的更有原则的方法是基于多任务学习，其目的是学习(视频)的表示，它不仅适用于所关心的任务，还适用于其他任务。额外的任务充当一个regulariser，并允许利用额外的训练数据。对于多任务学习，具体实现，论文中也给出了做法，修改ConvNet架构，使其在最后一个全连接层的顶部有两个softmax分类层：一个softmax层计算HMDB-51分类分数，另一个是UCF-101分数。每个层都由有自己的损失函数，该操作仅对来自相应数据集的视频进行操作。整体训练损失计算为各个任务的损失之和，并且可以通过反向传播更新网络参数。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/06/12/Overview-of-Few-shot-Learning/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_head1.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/figure.png" alt="Jiawen Zhang's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        jiawen2019@iscas.ac.cn
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                Home
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    Archives
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/04/">April 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">June 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">September 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">March 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/10/">October 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">September 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">August 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">May 2018<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                Categories
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/algorithm/">algorithm<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/crawler/">crawler<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/knowledge-graph/">knowledge graph<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/life/">life<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/paper-reading/">paper-reading<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/survey/">survey<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">info</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/cv" title="CV">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                CV
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/project" title="My projects">
+                
+                    <i class="material-icons sidebar-material-icons">school</i>
+                
+                My projects
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            Theme - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/fjlyzjw" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/jiawenjun2333/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="https://weibo.com/u/1904079292" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-weibo">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+        <a href="https://www.instagram.com/jiawen_zhang96/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Jiawen and her funny friends
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2018;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+    
+</html>
